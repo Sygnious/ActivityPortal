@@ -1,0 +1,4 @@
+Skriv i terminal, under folder: /Applications/NetBeans
+java -Djava.security.manager -Djava.security.policy=myJavaDB.policy org.apache.derby.drda.NetworkServerControl start
+
+ADVARSEL: Må være i netbeans-mappa for å finne myJavaDB.policy

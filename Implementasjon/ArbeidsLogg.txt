@@ -1,0 +1,9 @@
+Arbeidslogg:
+
+Antatt tapt tid: 4-5 timers programmering.
+2-3 EiT-dager brukt, + ca 3 timer ekstra for å lære JUnit
+
+Sum: ?
+
+19.03.2014. 2HR - Ferdig Implementert database med testdata 
+19.03.2014. 2HR - Implementert problemdomeneklasser
