@@ -11,6 +11,9 @@ import java.util.ArrayList;
 /**
  *
  * @author Sygnious
+ * 
+ * Class of User. Contains information about User, interests and participates
+ * activites.
  */
 public class User {
     private int userId; // TODO: Concider usefulness, maybe controller alone should cooperate with database

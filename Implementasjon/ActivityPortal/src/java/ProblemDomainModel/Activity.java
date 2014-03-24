@@ -12,6 +12,9 @@ import java.util.GregorianCalendar;
 /**
  *
  * @author Sygnious
+ * 
+ * Class for activity. Contains information, interest coverage and participating
+ * users.
  */
 public class Activity {
     private int activityId; // TODO: Concider usefulness, maybe controller alone should cooperate with database
