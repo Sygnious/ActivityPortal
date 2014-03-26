@@ -53,7 +53,7 @@ public class LoaderTest {
     
     // User load tests
     @Test
-    public void testLoadSingleUserOnID(){
+    public void testLoadSingleUserOnID() throws Exception{
         System.out.println("loadSingleUserOnID");
         User instance = Loader.loadSingleUserOnID(2);
         // Checking single variables
@@ -69,11 +69,12 @@ public class LoaderTest {
         assertEquals("interest size is not correnct", 5, instance.getInterests().size());
         assertEquals("interest first instance is not correnct", "Teater og kultur", instance.getInterests().get(0));
         // Checking extra content due to transform from Interest table to mere String arrayList
-        assertEquals("interest last instance is not correnct", "Sang og musikk", instance.getInterests().get(instance.getInterests().size())); 
+        assertEquals("interest last instance is not correnct", "Sang og musikk", instance.getInterests().get(instance.getInterests().size()-1)); 
         
         // Participated Activities
         assertEquals("partActs size is not correnct", 4, instance.getPartActs().size());
-        assertEquals("partActs id is not correnct", 1, instance.getPartActs().get(0).getActivityId());
+        assertEquals("partActs instance ID is not correnct", 1, instance.getPartActs().get(0).getActivityId());
+        assertEquals("partActs instance name is not correnct", "Teater: \"Kristin Lavransdatter\"", instance.getPartActs().get(0).getName());
     }
     
     // Acitivty load tests
@@ -104,7 +105,7 @@ public class LoaderTest {
     }
     
     @Test
-    public void testLoadSingleActivityOnID(){
+    public void testLoadSingleActivityOnID() throws Exception{
         System.out.println("loadSingleActivityOnID");
         Activity instance = Loader.loadSingleActivityOnID(5);
         // Checking single variables
@@ -112,7 +113,9 @@ public class LoaderTest {
         assertEquals("activityName is not correct", "Teater: \"De Miserable\"", instance.getName());
         assertEquals("activityDescription is not correct", "Forestilling med det franske stykket \"De Miserable\" på Trøndelag Teater. Oppmøte kl 19:00", instance.getDescription());
         assertEquals("activityTownID is not correct", 1, instance.getTownId());
-        assertEquals("activityDate is not correct", new GregorianCalendar(2014, 5, 3), instance.getDate());
+        assertEquals("activityDate.Year is not correct", 2014, instance.getDate().get(1));
+        assertEquals("activityDate.Month is not correct", 5, instance.getDate().get(2));
+        assertEquals("activityDate.Day is not correct", 13, instance.getDate().get(5));
         
         // Checcking Arraylists by size and ID of first contents, eventually last content (reason for why will be stated)
         // Covered Interest
@@ -120,8 +123,8 @@ public class LoaderTest {
         assertEquals("interest first instance is not correnct", "Teater og kultur", instance.getInterests().get(0));
         
         // Participants
-        assertEquals("participants size is not correnct", 1, instance.getParticipants().size());
-        assertEquals("participatns first instance is not correnct", 1, instance.getParticipants().get(0));
-        
+        assertEquals("participants size is not correnct", 4, instance.getParticipants().size());
+        assertEquals("participatns first instance ID is not correnct", 1, instance.getParticipants().get(0).getUserId());
+        assertEquals("participatns first instance name is not correnct", "Torbjørn", instance.getParticipants().get(0).getFirstName());
     }
 }

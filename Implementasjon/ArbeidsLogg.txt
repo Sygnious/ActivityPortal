@@ -8,4 +8,15 @@ Sum: ?
 19.03.2014 2HR - Ferdig Implementert database med testdata 
 19.03.2014 2HR - Implementert problemdomeneklasser
 24.03.2014 3HR - Laget tomme klasser for kontrollere og databasehandling. Ferdig implementert ConnectionHandler. Påbegynt Initiator og påfølgende test
-26.03.2014 8-11 - Satt opp databaserestarter, det trengs til enkelte enhetstester, og viktigst av alt: Restart av demonsrasjon
+26.03.2014 8HR - Satt opp databaserestarter, det trengs til enkelte enhetstester, og viktigst av alt: Restart av demonsrasjon
+				 Satt opp databaseinnlastingsmetoder for alle aktiviteter, alle detaljer om én aktivitet (innkludert deltakende brukere), alle detaljer om én bruker (innkludert påmeldte aktiviteter)
+
+
+
+
+Personlig refleksjon, onsdag 26. mars
+
+Synes det er veldig ergelig at jeg ikke kunne stille opp i dag, ettersom jeg vet jeg kan komme med innspill når det gjelder gruppediskusjoner. Dette får kompensere med at jeg fortsetter programmeringa hjemmefra.
+Jeg hadde håpa at en Skype-løsning kunne fungere, men jeg har full forståelse for at tekniske problemer ga stress. Jeg syntes jeg kunne høre litt stress i stemmen til Mari, for å si det sånn, og ergelsen for min del ble litt større når det viste seg at en slik kommunikasjon fungerte dårlig. Men jeg innser jeg bare akseptere dette.
+
+Jeg vil også gjøre oppmerksom på at det ikke er virus eller bakterie, men at jeg rett og slett har blitt litt(?) utbrent. Noen dager er jeg ok, noen dager føler jeg meg ganske dårlig pga vanlig stress. Hadde et lite sammenbrudd i går kveld. Jeg opplevde noe lignende i fjor også en gang (men da pga litt andre forhold). Jeg trengte to uker med konstant hvile for å komme meg til hektene. Problemet denne gangen er at jeg ikke ser hvile i sikte, pga mange små innleveringer av øvinger og rapporter i nærmeste tid. Det beste jeg kan gjøre er å gjøre litt skolearbeid hjemmefra om dagene. Må antakeligvis ofte et fag for dette semesteret. Men Eksperter i Team er ikke det faget jeg ofrer, dette har min høyeste prioritet fordi vi står og faller sammen som team, og jeg har ingen planer om å la dere lide nederlag pga meg. Ikke søren! Dessuten går det helt fint å programmere hjemmefra så lenge jeg er avslappet, det er først når jeg drar herfra at jeg kan få stress jeg ikke bør ha.

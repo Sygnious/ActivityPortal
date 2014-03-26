@@ -118,6 +118,23 @@ public class UserTest {
         assertEquals("Wrong activity found", "Content2", result1.getName());
         assertNull("Error when handling non-existing Id", result2);
     }
+    
+    @Test
+    public void testParticipatesInActivity() {
+        System.out.println("participatesInActivity");
+        ArrayList<Activity> instanceList = new ArrayList();
+        instanceList.add(new Activity(1, "Content1", null, 1));
+        instanceList.add(new Activity(2, "Content2", null, 1));
+        instanceList.add(new Activity(3, "Content3", null, 1));
+        instanceList.add(new Activity(4, "Content4", null, 1));
+        instance.setPartActs(instanceList);
+        
+        boolean result1= instance.participatesInActivity(3);
+        boolean result2= instance.participatesInActivity(6);
+        
+        assertEquals("Wrong: claims not to participate in activity with id 3", true, result1);
+        assertEquals("Wrong: claims to participate in activity with id 6", false, result2);
+    }
 
     /**
      * Test of removeInterest method, of class User.

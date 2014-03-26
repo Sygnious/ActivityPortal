@@ -81,11 +81,23 @@ public class User {
         return null;
     }
     
+    // May be needed for choosing participation or not in the jsf-pages
+    public boolean participatesInActivity(int activityId){
+        if (findActivityById(activityId) != null){
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
+    
     public void removeActivity(Activity deadActivity){
         if (deadActivity!=null){
             partActs.remove(deadActivity);
         }
     }
+    
+    
 
     
     //3 Get- and set-methods
