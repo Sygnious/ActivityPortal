@@ -60,7 +60,7 @@ REFERENCES post(post_id);
 INSERT INTO person VALUES(1, 'Torbjørn', 'Langland', 26, 'Moholt Allé 03-32 H0302', 7050);
 INSERT INTO person VALUES(2, 'Tove', 'Johansen', 61, 'Moholt Allé 555-555-555', 7050);
 INSERT INTO person VALUES(3, 'Bjørn', 'Johansen', 63, 'Birkenveien', 7015);
-INSERT INTO person VALUES(4, 'Trine Katrine', 'Larsen', 72, 'Moholt Alle 03-32 H0302', 7052);
+INSERT INTO person VALUES(4, 'Trine Katrine', 'Larsen', 72, 'Moholtveien 32', 7052);
 INSERT INTO person VALUES(5, 'Ludvig', 'Hansen', 56, 'Lersveien', 7234);
 INSERT INTO person VALUES(6, 'Stine Kristine', 'Stinesen', 69, 'Røsslyngveien 7', 7227);
 INSERT INTO person VALUES(7, 'Hans Hansen', 'Hansensen', 77, 'Måssåveien 15', 7227);

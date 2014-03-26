@@ -8,6 +8,8 @@ package ProblemDomainModel;
 
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
+import java.util.Locale;
+import java.util.StringTokenizer;
 
 /**
  *
@@ -69,6 +71,26 @@ public class Activity {
             participants.remove(deadUser);
         }
     }
+    
+    //Input must be in format YYYY-MM-DD. Should only be used when reading date from database
+    public GregorianCalendar convertToGregorian(String input){
+        StringTokenizer st = new StringTokenizer(input, "-");
+        int year = Integer.parseInt(st.nextToken());
+        int month = Integer.parseInt(st.nextToken());
+        int date = Integer.parseInt(st.nextToken());
+        return new GregorianCalendar(year, month, date);
+    }
+    
+    //Returns in format YYYY-MM-DD
+    public String convertFromGregorian(GregorianCalendar input){
+        int month = input.get(2);
+        String zero = "";
+        if (input.get(2)<10){
+            zero="0";
+        }
+        return input.get(1)+"-"+zero+input.get(2)+"-"+input.get(5);
+    }
+    
     
     //3 Get- and set-methods:
 
@@ -169,7 +191,6 @@ public class Activity {
     public void setParticipants(ArrayList<User> participants) {
         this.participants = participants;
     }
-    
     
     
 }

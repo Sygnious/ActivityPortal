@@ -31,7 +31,7 @@ public class ConnectionHandler {
             Connection con = DriverManager.getConnection(databaseName);
             return con;
         } catch (Exception e){
-            printSQLError(e, "openConnection()");
+            printError(e, "openConnection()");
             throw e; //TODO: Concider if this is necessary, since you base this on the book
         }
     }
@@ -56,7 +56,7 @@ public class ConnectionHandler {
                 res.close();
             }
         } catch (SQLException e) {
-            printSQLError(e, "closeResultSet()");
+            printError(e, "closeResultSet()");
         }
     }
 
@@ -67,7 +67,7 @@ public class ConnectionHandler {
                 stm.close();
             }
         } catch (SQLException e){
-            printSQLError(e, "closeStatement()");
+            printError(e, "closeStatement()");
         }
     }
     
@@ -77,7 +77,7 @@ public class ConnectionHandler {
                 con.close();
             }
         } catch (SQLException e){
-            printSQLError(e, "closeConnection()");
+            printError(e, "closeConnection()");
         }
     }
     
@@ -89,7 +89,7 @@ public class ConnectionHandler {
                 con.rollback();
             }
         } catch (SQLException e){
-            printSQLError(e, "rollBack()");
+            printError(e, "rollBack()");
         }
     }
     
@@ -99,11 +99,11 @@ public class ConnectionHandler {
                 con.setAutoCommit(true);
             }
         } catch (SQLException e){
-            printSQLError(e, "setAutoCommit()");
+            printError(e, "setAutoCommit()");
         }
     }
     
-    public static void printSQLError(Exception e, String message){
+    public static void printError(Exception e, String message){
         System.err.println("*** Error detected: " + message + ". ***");
         e.printStackTrace(System.err);
     }

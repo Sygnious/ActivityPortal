@@ -5,5 +5,7 @@ Antatt tapt tid: 4-5 timers programmering.
 
 Sum: ?
 
-19.03.2014. 2HR - Ferdig Implementert database med testdata 
-19.03.2014. 2HR - Implementert problemdomeneklasser
+19.03.2014 2HR - Ferdig Implementert database med testdata 
+19.03.2014 2HR - Implementert problemdomeneklasser
+24.03.2014 3HR - Laget tomme klasser for kontrollere og databasehandling. Ferdig implementert ConnectionHandler. Påbegynt Initiator og påfølgende test
+26.03.2014 8-11 - Satt opp databaserestarter, det trengs til enkelte enhetstester, og viktigst av alt: Restart av demonsrasjon
