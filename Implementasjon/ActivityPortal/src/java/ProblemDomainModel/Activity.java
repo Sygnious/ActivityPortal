@@ -8,7 +8,6 @@ package ProblemDomainModel;
 
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
-import java.util.Locale;
 import java.util.StringTokenizer;
 
 /**
@@ -18,7 +17,7 @@ import java.util.StringTokenizer;
  * Class for activity. Contains information, interest coverage and participating
  * users.
  */
-public class Activity {
+public class Activity implements java.io.Serializable {
     private int activityId; // TODO: Concider usefulness, maybe controller alone should cooperate with database
     private String name;
     private String description;

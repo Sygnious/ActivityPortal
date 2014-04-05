@@ -15,7 +15,7 @@ import java.util.ArrayList;
  * Class of User. Contains information about User, interests and participates
  * activites.
  */
-public class User {
+public class User implements java.io.Serializable{
     private int userId; // TODO: Concider usefulness, maybe controller alone should cooperate with database
     private String firstName;
     private String surName;
@@ -27,6 +27,18 @@ public class User {
     //private ArrayList<User> friends;    //TODO: Implement at lager stage
     
     //1 Constructors:
+    
+    //Empty constructor, needed for UserBean initialiation.
+    public User(){
+        this.userId = -1;
+        this.firstName = "";
+        this.surName = "";
+        this.age = -1;
+        this.address = "";
+        this.postAddress=new Post(-1,"");
+        this.interests = new ArrayList<String>();
+        this.partActs = new ArrayList<Activity>();
+    }
     
     // Regular constructor
     public User(int userId, String firstName, String surName, int age, String address, Post postAddress){

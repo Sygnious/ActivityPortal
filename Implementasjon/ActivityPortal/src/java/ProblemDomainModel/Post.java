@@ -10,7 +10,7 @@ package ProblemDomainModel;
  *
  * @author Sygnious
  */
-public class Post {
+public class Post implements java.io.Serializable{
     private int postId;
     private String postAddress;
     
