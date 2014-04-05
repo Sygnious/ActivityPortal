@@ -5,20 +5,27 @@
  */
 
 package Controller;
+import ProblemDomainModel.*;
+import Database.*;
 
 import javax.inject.Named;
-import javax.faces.bean.RequestScoped;
+import javax.enterprise.context.SessionScoped;
 
 /**
  *
  * @author Sygnious
+ * 
+ * Purpose of this class is all control related to handling activity data.
  */
-@Named("activityB")
-@RequestScoped
+@Named("actB")
+@SessionScoped
 public class ActivityBean implements java.io.Serializable {
 
-    /**
-     * Creates a new instance of ActivityController
-     */
+    private Activity singleActivity;
+    private String currentString;
+    
+    public ActivityBean(){
+        
+    }
     
 }

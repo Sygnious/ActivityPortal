@@ -10,8 +10,8 @@ Sum: ?
 24.03.2014 3HR - Laget tomme klasser for kontrollere og databasehandling. Ferdig implementert ConnectionHandler. Påbegynt Initiator og påfølgende test
 26.03.2014 8HR - Satt opp databaserestarter, det trengs til enkelte enhetstester, og viktigst av alt: Restart av demonsrasjon
 				 Satt opp databaseinnlastingsmetoder for alle aktiviteter, alle detaljer om én aktivitet (innkludert deltakende brukere), alle detaljer om én bruker (innkludert påmeldte aktiviteter)
-02.04.2014 08:45-09:45, 10:45-11:30, 13:15-14:30 - 3HR - Begynt implementasjon 
-05.04.2014: Ca. Fra 16:00
+02.04.2014 3HR - Begynt implementasjon 
+05.04.2014: 4.5 HR - Fikset load-feil, fikk den tilbake senere av ukjent årsak. Har laget flere websider med knapper.
 
 TODO:
 2nd-priority står på ikke høyeste prioritet.
@@ -21,15 +21,30 @@ TAGGED er neste på planen
 - Frontside
 	- Lage knapper ("Hva vil du gjøre?")
 		- Vise aktiviteter
-		- Søke etter venner (2nd-priority)
+			- Alle
+			- Søk etter interesse
+			- Søk etter venner (NO WAY OR 2nd priority)
+			- Søk etter søkeord
+			- Søk etter område
+				- Områdenr
+				- Postnummer (2nd-priority)
+				- Radious (NO WAY)
+		- Søke etter venner (2nd-priority OR NO WAY)
 		- Administrere egen bruker (2nd-priority)
 - Få laget oversikt over tilhørende aktiviteter (TAGGED) (gjelder konstant)
 	- Lage egen side, som implementeres med ui-template (2nd)
 - 
 
-
-
-
+- Databasemuligheter som finnes som må tas i bruk
+	- User
+		- Load single (DONE)
+		- Load all others (Not implemented)
+		- 
+	- Activity
+		- Load all activities
+		- Load all activities on ID (DONE... sort of)
+	- Stash
+		- Table size (could be useful)
 
 
 

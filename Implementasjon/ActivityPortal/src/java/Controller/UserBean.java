@@ -15,8 +15,10 @@ import java.util.ArrayList;
 /**
  *
  * @author Sygnious
+ * 
+ * Purpose of this class is all control related to handling user data.
  */
-@Named("UserB")
+@Named("userB")
 @SessionScoped
 public class UserBean implements java.io.Serializable{
 
@@ -24,7 +26,7 @@ public class UserBean implements java.io.Serializable{
     private User singleUser = new User();
     //@Inject private ArrayList<User> userList;
     private ArrayList<User> userList = new ArrayList();
-    private String currentPage = "index";
+    private String currentPage;
     
     public UserBean(){
         // Compulsory Constructor

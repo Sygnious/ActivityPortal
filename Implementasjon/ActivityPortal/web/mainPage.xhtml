@@ -7,7 +7,22 @@
     </h:head>
     <h:body>
         <h:form>
-            Velkommen tilbake, #{UserB.singleUser.firstName}.
+            <h:panelGrid columns ="2">
+                <h:panelGroup>
+                    
+                </h:panelGroup>
+                <h:panelGroup>
+                    Velkommen tilbake, #{UserB.singleUser.firstName}.
+                    <br/>
+                    <br/>
+                    Hva vil du gjøre?
+                    <br/>
+                    <br/>
+                    <p><h:commandButton value = "Søke etter aktiviteter" action = "#{secNavB.activityIndex}"/></p>
+                    <p><h:commandButton value = "Søke etter venner"/></p>
+                    <p><h:commandButton value = "Endre mine opplysninger"/></p>
+                </h:panelGroup>
+            </h:panelGrid>
         </h:form>
     </h:body>
 </html>
