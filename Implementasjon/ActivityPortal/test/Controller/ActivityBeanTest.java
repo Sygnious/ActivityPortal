@@ -50,6 +50,32 @@ public class ActivityBeanTest {
     @Test
     public void testShowAllActivities() throws Exception {
         System.out.println("showAllActivities");
+        // Set up
+        
+        // Though not correct happening in the application, a chosen activity
+        // from the web page still has activity id-number that is used.
+        instanceAct = new Activity(1, null, null, -99); 
+        instance = new ActivityBean();
+        
+        // Execute 1: Should not do anything if parameter ojbect is not of type Activity
+        instanceString = instance.showActivityDetails("This String is a hoax and will not work");
+        
+        assertNull("instanceString was not null when using wrong object type", instanceString);
+        assertNull("Activity details changed even if object type was wrong for method", instanceAct.getName());
+        
+        // Execute 2: Changes when parameter object is of type Activiy:
+        instanceString = instance.showActivityDetails(instanceAct);
+        
+        // Checking return string
+        assertEquals("Incorrect page navigation string", "activityOne", instanceString);
+        // testLoadSingleActivityOnID already tested in LoaderTest, therefore only a few details should suffice
+        assertEquals("Loaded actity name is wrong", "Teater: \"Kristin Lavransdatter\"", instance.getSingleAct().getName());
+        assertEquals("Loaded activity description is wrong", "Forestilling med \"Kristing Lavransdatter\" på Trøndelag Teater. Oppmøte kl 18:00", instance.getSingleAct().getDescription());
+    }
+    
+    @Test
+    public void testShowActivityDetails() throws Exception {
+        System.out.println("showActivityDetails");
         //Execute
         instance = new ActivityBean();
         instanceString = instance.showAllActivities();
@@ -58,7 +84,6 @@ public class ActivityBeanTest {
         
         // Checking return string
         assertEquals("Incorrect page navigation string", "activityList", instanceString);
-        
         // Checking size of Activity List, checking name of first
         // testLoadAllActivities already tested in LoaderTest, therefore only a few details should suffice
         assertEquals("Loaded actityList first intance name is wrong", "Teater: \"Kristin Lavransdatter\"", instanceAct.getName());

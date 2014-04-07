@@ -30,11 +30,32 @@ public class ActivityBean implements java.io.Serializable {
         // Compulsory Constructor
     }
     
+    // Methods for loading activities
+    
+    public String showActivityDetails(Object obj) throws Exception{
+        if (obj instanceof Activity){
+            singleAct = (Activity) obj;
+            singleAct = Loader.loadSingleActivityOnID(singleAct.getActivityId());
+            return "activityOne";
+        }
+        
+        return null;
+    }
+    
     public String showAllActivities() throws Exception{
         setActList(Loader.loadAllActivities());
         return "activityList";
     }
 
+    
+    
+    // Methods for storing activities?
+    
+    /*
+    
+    Insert something here, if deemed necessary
+    
+    */
     
     // Get- and set-methods
     

@@ -13,7 +13,7 @@ Sum: ?
 02.04.2014 3HR - Begynt implementasjon 
 05.04.2014: 5.5 HR - Fikset load-feil, fikk den tilbake senere av ukjent årsak. Har laget flere websider med knapper. Update: Fikset Load feil, jobber med listepresentasjon.
 07.04.2014: 0.5 HR - Lagt inn søk eller alle aktiviteter på websiden.
-
+			  1 HR - Lagt inn detaljer om enkeltaktivitet. Må få bilde til å fungere
 
 TOTALT SÅ LANGT: 24 (27 med JUnit læring)
 
@@ -26,6 +26,7 @@ TAGGED er neste på planen
 	- Lage knapper ("Hva vil du gjøre?")
 		- Vise aktiviteter
 			- Alle (DONE)
+			- Vise detaljer (TAGGED)
 			- Søk etter interesse
 			- Søk etter venner (NO WAY OR 2nd priority)
 			- Søk etter søkeord
@@ -36,7 +37,7 @@ TAGGED er neste på planen
 		- Søke etter venner (2nd-priority OR NO WAY)
 		- Administrere egen bruker (2nd-priority)
 - Få laget oversikt over tilhørende aktiviteter (DONE) (gjelder konstant)
-	- Lage egen side, som implementeres med ui-template (TAGGED) (Må ha format klar til sceenshots innen onsdag)
+	- Lage egen side, som implementeres med ui-template (TAGGED (Flyttes til i morgen)) (Må ha format klar til sceenshots innen onsdag)
 - 
 
 - Databasemuligheter som finnes som må tas i bruk

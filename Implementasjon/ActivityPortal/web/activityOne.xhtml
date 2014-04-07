@@ -6,7 +6,55 @@
         <title>Facelet Title</title>
     </h:head>
     <h:body>
-        Hello from Facelets
+        <h:form>
+            <h:panelGrid columns ="2">
+                <h:panelGroup>
+                    Aktiviteter du er påmeldt:<br/>
+                    <h:dataTable value="#{userB.singleUser.partActs}" width="400" var="pacts">
+                        <h:column>
+                            #{pacts.name}
+                        </h:column>
+                        <h:column>
+                            #{pacts.dateAsString}
+                        </h:column>
+                        <h:column>
+                            <h:commandLink value="Les mer"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <h:panelGroup>
+                    <h:panelGrid columns ="2">
+                        <h:panelGroup>
+                            <h:panelGrid columns ="2">
+                                <h:panelGroup>Navn: </h:panelGroup>
+                                <h:panelGroup>#{actB.singleAct.name}</h:panelGroup>
+
+                                <h:panelGroup> <!--Image here--> </h:panelGroup>
+                                <h:panelGroup><h:graphicImage name="Resources/Images/Scary.png"/></h:panelGroup>
+                                
+                                <h:panelGroup>Dato: </h:panelGroup>
+                                <h:panelGroup>#{actB.singleAct.dateAsString}</h:panelGroup>
+
+                                <h:panelGroup>Detaljer: </h:panelGroup>
+                                <h:panelGroup>#{actB.singleAct.description} </h:panelGroup>
+                            </h:panelGrid>
+                        </h:panelGroup>
+                        <h:panelGroup>
+                            <p><h:commandButton value = "Meld på"/></p>
+                            <p>Påmeldte:</p>
+                            <h:dataTable value="#{actB.singleAct.participants}" width="400" var="parti">
+                                <h:column>
+                                   #{parti.surName}
+                                </h:column>
+                                <h:column>
+                                    #{parti.firstName}
+                                </h:column>
+                            </h:dataTable>
+                        </h:panelGroup>
+                    </h:panelGrid>
+                </h:panelGroup>
+            </h:panelGrid>
+        </h:form>
     </h:body>
 </html>
 

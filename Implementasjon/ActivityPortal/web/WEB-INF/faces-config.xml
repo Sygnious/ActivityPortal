@@ -13,11 +13,17 @@
         </navigation-case>
     </navigation-rule>
     
-    
     <navigation-rule>
         <navigation-case>
             <from-outcome>activityList</from-outcome>
             <to-view-id>/activityList.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <navigation-case>
+            <from-outcome>activityOne</from-outcome>
+            <to-view-id>/activityOne.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
     
