@@ -4,10 +4,20 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
     
+    <!-- Navigation rules are ordered alphabetically-->
+    
     <navigation-rule>
         <navigation-case>
             <from-outcome>activityIndex</from-outcome>
             <to-view-id>/activityIndex.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    
+    <navigation-rule>
+        <navigation-case>
+            <from-outcome>activityList</from-outcome>
+            <to-view-id>/activityList.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
     

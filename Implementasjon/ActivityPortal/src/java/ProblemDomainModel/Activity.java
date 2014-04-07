@@ -90,6 +90,10 @@ public class Activity implements java.io.Serializable {
         return input.get(1)+"-"+zero+input.get(2)+"-"+input.get(5);
     }
     
+    // Needed for web presentation
+    public String getDateAsString(){
+        return convertFromGregorian(date);
+    }
     
     //3 Get- and set-methods:
 

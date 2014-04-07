@@ -7,6 +7,7 @@
 package Controller;
 import ProblemDomainModel.*;
 import Database.*;
+import java.util.ArrayList;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -20,6 +21,11 @@ import static org.junit.Assert.*;
  * @author Sygnious
  */
 public class ActivityBeanTest {
+    
+    private ActivityBean instance;
+    private Activity instanceAct;
+    private ArrayList<Activity> instanceActList;
+    private String instanceString;
     
     public ActivityBeanTest() {
     }
@@ -42,9 +48,21 @@ public class ActivityBeanTest {
     }
 
     @Test
-    public void testSomeMethod() {
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    public void testShowAllActivities() throws Exception {
+        System.out.println("showAllActivities");
+        //Execute
+        instance = new ActivityBean();
+        instanceString = instance.showAllActivities();
+        instanceActList = instance.getActList();
+        instanceAct = instanceActList.get(0);
+        
+        // Checking return string
+        assertEquals("Incorrect page navigation string", "activityList", instanceString);
+        
+        // Checking size of Activity List, checking name of first
+        // testLoadAllActivities already tested in LoaderTest, therefore only a few details should suffice
+        assertEquals("Loaded actityList first intance name is wrong", "Teater: \"Kristin Lavransdatter\"", instanceAct.getName());
+        assertEquals("Loaded actityList size is wrong", 13, instanceActList.size());
     }
     
 }

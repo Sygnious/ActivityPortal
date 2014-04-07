@@ -9,14 +9,23 @@
         <h:form>
             <h:panelGrid columns ="2">
                 <h:panelGroup>
-                    
+                    Aktiviteter du er påmeldt:<br/>
+                    <h:dataTable value="#{userB.singleUser.partActs}" width="400" var="pacts">
+                        <h:column>
+                            #{pacts.name}
+                        </h:column>
+                        <h:column>
+                            #{pacts.dateAsString}
+                        </h:column>
+                        <h:column>
+                            <h:commandLink value="Les mer"/>
+                        </h:column>
+                    </h:dataTable>
                 </h:panelGroup>
                 <h:panelGroup>
-                    Velkommen tilbake, #{UserB.singleUser.firstName}.
+                    Velkommen tilbake, #{UserB.singleUser.firstName}.<br/>
                     <br/>
-                    <br/>
-                    Hva vil du gjøre?
-                    <br/>
+                    Hva vil du gjøre?<br/>
                     <br/>
                     <p><h:commandButton value = "Søke etter aktiviteter" action = "#{secNavB.activityIndex}"/></p>
                     <p><h:commandButton value = "Søke etter venner"/></p>

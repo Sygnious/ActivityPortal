@@ -37,8 +37,6 @@ public class UserBean implements java.io.Serializable{
     // Currently as Torbjørn Langland. May change. 
     public String logIn() throws Exception{
         singleUser = Loader.loadSingleUserOnID(1);
-        //currentPage = "mainPage";
-        //return "mainPage";
         return currentPage = "mainPage";
     }
     

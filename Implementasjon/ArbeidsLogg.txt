@@ -11,7 +11,11 @@ Sum: ?
 26.03.2014 8HR - Satt opp databaserestarter, det trengs til enkelte enhetstester, og viktigst av alt: Restart av demonsrasjon
 				 Satt opp databaseinnlastingsmetoder for alle aktiviteter, alle detaljer om én aktivitet (innkludert deltakende brukere), alle detaljer om én bruker (innkludert påmeldte aktiviteter)
 02.04.2014 3HR - Begynt implementasjon 
-05.04.2014: 4.5 HR - Fikset load-feil, fikk den tilbake senere av ukjent årsak. Har laget flere websider med knapper.
+05.04.2014: 5.5 HR - Fikset load-feil, fikk den tilbake senere av ukjent årsak. Har laget flere websider med knapper. Update: Fikset Load feil, jobber med listepresentasjon.
+07.04.2014: 0.5 HR - Lagt inn søk eller alle aktiviteter på websiden.
+
+
+TOTALT SÅ LANGT: 24 (27 med JUnit læring)
 
 TODO:
 2nd-priority står på ikke høyeste prioritet.
@@ -21,7 +25,7 @@ TAGGED er neste på planen
 - Frontside
 	- Lage knapper ("Hva vil du gjøre?")
 		- Vise aktiviteter
-			- Alle
+			- Alle (DONE)
 			- Søk etter interesse
 			- Søk etter venner (NO WAY OR 2nd priority)
 			- Søk etter søkeord
@@ -31,8 +35,8 @@ TAGGED er neste på planen
 				- Radious (NO WAY)
 		- Søke etter venner (2nd-priority OR NO WAY)
 		- Administrere egen bruker (2nd-priority)
-- Få laget oversikt over tilhørende aktiviteter (TAGGED) (gjelder konstant)
-	- Lage egen side, som implementeres med ui-template (2nd)
+- Få laget oversikt over tilhørende aktiviteter (DONE) (gjelder konstant)
+	- Lage egen side, som implementeres med ui-template (TAGGED) (Må ha format klar til sceenshots innen onsdag)
 - 
 
 - Databasemuligheter som finnes som må tas i bruk

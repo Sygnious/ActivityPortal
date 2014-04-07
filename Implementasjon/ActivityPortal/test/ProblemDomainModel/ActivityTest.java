@@ -150,16 +150,25 @@ public class ActivityTest {
     @Test
     public void testConvertToGregorian(){
         System.out.println("convertToGregorian");
-        GregorianCalendar instance = new Activity(0, null, null, 0).convertToGregorian("2013-05-28");
-        assertEquals("Year is wrong", 2013, instance.get(1));
-        assertEquals("Month is wrong", 5, instance.get(2));
-        assertEquals("Day is wrong", 28, instance.get(5));
+        GregorianCalendar instanceCalendar = new Activity(0, null, null, 0).convertToGregorian("2013-05-28");
+        assertEquals("Year is wrong", 2013, instanceCalendar.get(1));
+        assertEquals("Month is wrong", 5, instanceCalendar.get(2));
+        assertEquals("Day is wrong", 28, instanceCalendar.get(5));
     }
     
     @Test
     public void testConvertFromGregorian(){
         System.out.println("convertFromGregorian");
-        String instance = new Activity(0, null, null, 0).convertFromGregorian(new GregorianCalendar(2013, 5, 28));
-        assertEquals("Date is wrong", "2013-05-28", instance);
+        String instanceString = new Activity(0, null, null, 0).convertFromGregorian(new GregorianCalendar(2013, 5, 28));
+        assertEquals("Date is wrong", "2013-05-28", instanceString);
+    }
+    
+    @Test
+    public void testDateAsString(){
+        System.out.println("dateAsString");
+        instance = new Activity(0, null, null, 0);
+        instance.setDate(new GregorianCalendar(2016, 8, 13));
+        String instanceString = instance.getDateAsString();
+        assertEquals("Date is wrong", "2016-08-13", instanceString);
     }
 }
