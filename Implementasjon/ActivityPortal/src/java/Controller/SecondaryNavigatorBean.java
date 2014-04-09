@@ -6,6 +6,9 @@
 
 package Controller;
 
+import Database.*;
+import java.util.ArrayList;
+
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
@@ -22,9 +25,10 @@ import java.io.Serializable;
 public class SecondaryNavigatorBean implements Serializable {
 
     private String currentPage;
+    private ArrayList<String> interests;
     
     public SecondaryNavigatorBean() {
-    
+        
     }
     
     // A method for each possible navigation is not desirable, 
@@ -36,6 +40,43 @@ public class SecondaryNavigatorBean implements Serializable {
     
     public String activityIndex(){
         return currentPage = "activityIndex";
+    }
+    
+    public String activitySearch(){
+        return currentPage = "activitySearch";
+    }
+    
+    public String interestList() throws Exception{
+        interests=Loader.loadAllInterestsNamesOnly();
+        return "interestList";
+    }
+
+    /**
+     * @return the currentPage
+     */
+    public String getCurrentPage() {
+        return currentPage;
+    }
+
+    /**
+     * @param currentPage the currentPage to set
+     */
+    public void setCurrentPage(String currentPage) {
+        this.currentPage = currentPage;
+    }
+
+    /**
+     * @return the interests
+     */
+    public ArrayList<String> getInterests() {
+        return interests;
+    }
+
+    /**
+     * @param interests the interests to set
+     */
+    public void setInterests(ArrayList<String> interests) {
+        this.interests = interests;
     }
     
 }

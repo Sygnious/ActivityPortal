@@ -91,7 +91,7 @@ public class Loader {
             res.close();
             stm.close();
             // Execuring query for activities user participates in
-            stmString = "SELECT a.* FROM activity a JOIN activity_person b ON (a.activity_id = b.activity_id AND b.person_id = ?)";
+            stmString = "SELECT a.* FROM activity a JOIN activity_person b ON (a.activity_id = b.activity_id AND b.person_id = ?) ORDER BY activity_date";
             stm = con.prepareStatement(stmString);
             stm.setInt(1, userID);
             res = stm.executeQuery();
@@ -122,7 +122,7 @@ public class Loader {
         try{
             con = ConnectionHandler.openConnection();
             // Executing query for all activities
-            String stmString = "SELECT * FROM activity WHERE activity_date > ?";
+            String stmString = "SELECT * FROM activity WHERE activity_date > ? ORDER BY activity_date";
             
             /*
             * Code section for implementing today's date.
@@ -132,7 +132,6 @@ public class Loader {
             res = stm.executeQuery();
             
             // Loading Activity List
-            int townID;
             while (res.next()){ //TODO: Handle NULL-values
                 instance = new Activity(res.getInt(1), res.getString(2), res.getString(3), res.getInt(4));
                 instance.setDate(instance.convertToGregorian(res.getString(5)));
@@ -201,5 +200,104 @@ public class Loader {
         return result;
     }
     
+    public static ArrayList<Activity> loadActivitiesOnInterest(String interest) throws Exception{
+        ArrayList<Activity> resultList = new ArrayList();
+        Activity instance;
+        
+        try{
+            con = ConnectionHandler.openConnection();
+            // Executing query for activities connected to one interest
+            String stmString = "SELECT a.* FROM activity a JOIN activity_interest b ON (a.activity_id=b.activity_id AND a.activity_date> ?) JOIN interest c ON (b.interest_id = c.interest_id AND c.interest_name = ?) ORDER BY a.activity_date";
+            
+            /*
+            * Code section for implementing today's date.
+            */
+            stm = con.prepareStatement(stmString);
+            stm.setString(1, demoDate);
+            stm.setString(2, interest);
+            res = stm.executeQuery();
+            
+            // Loading Activity List
+            while (res.next()){ //TODO: Handle NULL-values
+                instance = new Activity(res.getInt(1), res.getString(2), res.getString(3), res.getInt(4));
+                instance.setDate(instance.convertToGregorian(res.getString(5)));
+                resultList.add(instance);
+            }
+            
+        } catch (Exception e){
+            ConnectionHandler.printError(e, "Loader.loadActivitiesOnInterest()");
+            throw e;
+        } finally {
+            ConnectionHandler.closeAll(res, stm, con);
+        }
+        return resultList;
+    }
+    
+    public static ArrayList<Activity> loadActivitiesOnSearch(String keyWord) throws Exception{
+        ArrayList<Activity> resultList = new ArrayList();
+        Activity instance;
+        String input;
+        
+        try{
+            con = ConnectionHandler.openConnection();
+            // Executing query for activities connected to one interest
+            String stmString = "SELECT activity.* FROM activity WHERE activity_date > ? AND (activity_name LIKE ? OR activity_description LIKE ?) ORDER BY activity_date";
+            
+            /*
+            * Code section for implementing today's date.
+            */
+            input = "%"+keyWord+"%";
+            stm = con.prepareStatement(stmString);
+            stm.setString(1, demoDate);
+            stm.setString(2, input);
+            stm.setString(3, input);
+            res = stm.executeQuery();
+            
+            
+            // Loading Activity List
+            while (res.next()){ //TODO: Handle NULL-values
+                instance = new Activity(res.getInt(1), res.getString(2), res.getString(3), res.getInt(4));
+                instance.setDate(instance.convertToGregorian(res.getString(5)));
+                resultList.add(instance);
+            }
+            
+        } catch (Exception e){
+            ConnectionHandler.printError(e, "Loader.loadActivitiesOnSearch()");
+            throw e;
+        } finally {
+            ConnectionHandler.closeAll(res, stm, con);
+        }
+        return resultList;
+    }
+    
+    // Other loads
+    
+    public static ArrayList<String> loadAllInterestsNamesOnly() throws Exception{
+        ArrayList<String> resultList = new ArrayList();
+        Activity instance;
+        
+        try{
+            con = ConnectionHandler.openConnection();
+            // Executing query for all activities
+            String stmString = "SELECT * FROM interest";
+            
+            /*
+            * Code section for implementing today's date.
+            */
+            stm = con.prepareStatement(stmString);
+            res = stm.executeQuery();
+            
+            while (res.next()){ //TODO: Handle NULL-values
+                resultList.add(res.getString(2));
+            }
+            
+        } catch (Exception e){
+            ConnectionHandler.printError(e, "Loader.loadAllInterestsNamesOnly()");
+            throw e;
+        } finally {
+            ConnectionHandler.closeAll(res, stm, con);
+        }
+        return resultList;
+    }
     
 }

@@ -73,8 +73,8 @@ public class LoaderTest {
         
         // Participated Activities
         assertEquals("partActs size is not correnct", 4, instance.getPartActs().size());
-        assertEquals("partActs instance ID is not correnct", 1, instance.getPartActs().get(0).getActivityId());
-        assertEquals("partActs instance name is not correnct", "Teater: \"Kristin Lavransdatter\"", instance.getPartActs().get(0).getName());
+        assertEquals("partActs instance ID is not correnct", 8, instance.getPartActs().get(0).getActivityId());
+        assertEquals("partActs instance name is not correnct", "Skitur i Flåmarka", instance.getPartActs().get(0).getName());
     }
     
     // Acitivty load tests
@@ -88,11 +88,11 @@ public class LoaderTest {
         // Checking contents of first
         Activity instance = list.get(0);
         
-        assertEquals("activityID is not correct", 1, instance.getActivityId());
-        assertEquals("activityName is not correct", "Teater: \"Kristin Lavransdatter\"", instance.getName());
-        assertEquals("activityDescription is not correct", "Forestilling med \"Kristing Lavransdatter\" på Trøndelag Teater. Oppmøte kl 18:00", instance.getDescription());
+        assertEquals("activityID is not correct", 7, instance.getActivityId());
+        assertEquals("activityName is not correct", "Skitur på Gråkallen", instance.getName());
+        assertEquals("activityDescription is not correct", "Ring 90 69 54 17 for påmelding. Elever fra Rimi Videregående Skole stiller opp", instance.getDescription());
         assertEquals("activityTownID is not correct", 1, instance.getTownId());
-        assertEquals("activityDate is not correct", new GregorianCalendar(2014, 4, 9), instance.getDate());
+        assertEquals("activityDate is not correct", new GregorianCalendar(2014, 4, 2), instance.getDate());
         
         // Lists should be empty since this is a total overview fuction.
         // Difference may occur if participants or interests are used for filter, this will be noted in other tests.
@@ -126,5 +126,105 @@ public class LoaderTest {
         assertEquals("participants size is not correnct", 4, instance.getParticipants().size());
         assertEquals("participatns first instance ID is not correnct", 1, instance.getParticipants().get(0).getUserId());
         assertEquals("participatns first instance name is not correnct", "Torbjørn", instance.getParticipants().get(0).getFirstName());
+    }
+    
+    @Test
+    public void testLoadActivitiesOnInterest() throws Exception{
+        System.out.println("loadSingleActivitiesOnInterest");
+        ArrayList<Activity> list = Loader.loadActivitiesOnInterest("Teater og kultur");
+        // Checking size of array. 
+        assertEquals("total array size is not correct", 4, list.size());
+        // Checking contents of first
+        Activity instance = list.get(0);
+        
+        assertEquals("activityID is not correct", 1, instance.getActivityId());
+        assertEquals("activityName is not correct", "Teater: \"Kristin Lavransdatter\"", instance.getName());
+        assertEquals("activityDescription is not correct", "Forestilling med \"Kristing Lavransdatter\" på Trøndelag Teater. Oppmøte kl 18:00", instance.getDescription());
+        assertEquals("activityTownID is not correct", 1, instance.getTownId());
+        assertEquals("activityDate is not correct", new GregorianCalendar(2014, 4, 9), instance.getDate());
+        
+        // Lists should be empty since this is a total overview fuction.
+        // Difference may occur if participants or interests are used for filter, this will be noted in other tests.
+        // Covered Interest
+        assertEquals("interest size is not correnct", 0, instance.getInterests().size());
+        
+        // Participants
+        assertEquals("participants size is not correnct", 0, instance.getParticipants().size());
+    }
+    
+    // Will be split into 3: One search for name, one search for content, one search that misses.
+    @Test
+    public void testLoadActivitiesOnSearch1() throws Exception{
+        System.out.println("loadActivitiesOnSearch1: Search finds name");
+        
+        ArrayList<Activity> list;
+        Activity instance;
+        list = Loader.loadActivitiesOnSearch("Teater");
+        // Checking size of array. 
+        assertEquals("total array size is not correct", 2, list.size());
+        // Checking contents of first
+        instance = list.get(0);
+        
+        assertEquals("activityID is not correct", 1, instance.getActivityId());
+        assertEquals("activityName is not correct", "Teater: \"Kristin Lavransdatter\"", instance.getName());
+        assertEquals("activityDescription is not correct", "Forestilling med \"Kristing Lavransdatter\" på Trøndelag Teater. Oppmøte kl 18:00", instance.getDescription());
+        assertEquals("activityTownID is not correct", 1, instance.getTownId());
+        assertEquals("activityDate is not correct", new GregorianCalendar(2014, 4, 9), instance.getDate());
+        
+        // Lists should be empty since this is a total overview fuction.
+        // Difference may occur if participants or interests are used for filter, this will be noted in other tests.
+        // Covered Interest
+        assertEquals("interest size is not correnct", 0, instance.getInterests().size());
+        
+        // Participants
+        assertEquals("participants size is not correnct", 0, instance.getParticipants().size());
+    }
+    
+    @Test
+    public void testLoadActivitiesOnSearch2() throws Exception{
+        System.out.println("loadActivitiesOnSearch2: Search finds description");
+        
+        ArrayList<Activity> list;
+        Activity instance;
+        list = Loader.loadActivitiesOnSearch("forestilling");
+        // Checking size of array. 
+        assertEquals("total array size is not correct", 1, list.size());
+        // Checking contents of first
+        instance = list.get(0);
+        
+        assertEquals("activityID is not correct", 11, instance.getActivityId());
+        assertEquals("activityName is not correct", "Kino: \"Hobbiten 3\"", instance.getName());
+        assertEquals("activityDescription is not correct", "Kinoforestilling på Nova med Hobbiten 3. Oppmøte 17:30.", instance.getDescription());
+        assertEquals("activityTownID is not correct", 1, instance.getTownId());
+        assertEquals("activityDate is not correct", new GregorianCalendar(2014, 5, 21), instance.getDate());
+        
+        // Lists should be empty since this is a total overview fuction.
+        // Difference may occur if participants or interests are used for filter, this will be noted in other tests.
+        // Covered Interest
+        assertEquals("interest size is not correnct", 0, instance.getInterests().size());
+        
+        // Participants
+        assertEquals("participants size is not correnct", 0, instance.getParticipants().size());
+    }
+    
+    @Test
+    public void testLoadActivitiesOnSearch3() throws Exception{
+        System.out.println("loadActivitiesOnSearch2: Search finds nothing");
+        
+        ArrayList<Activity> list;
+        list = Loader.loadActivitiesOnSearch("Carl I Hagen blir sint hvis du sniker inn i huset hans!");
+        // Checking size of array. 
+        assertEquals("total array size is not correct", 0, list.size());
+    }
+    
+    // Other loads
+    
+    @Test
+    public void testLoadAllInterestsNamesOnly() throws Exception{
+        System.out.println("loadAllInterests");
+        ArrayList<String> list = Loader.loadAllInterestsNamesOnly();
+        
+        assertEquals("interest size is not corrext is not correct", 9, list.size());
+        assertEquals("insterest first instance is not correct", "Teater og kultur", list.get(0));
     }
 }

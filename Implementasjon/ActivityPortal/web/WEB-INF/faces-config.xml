@@ -29,8 +29,22 @@
     
     <navigation-rule>
         <navigation-case>
+            <from-outcome>activitySearch</from-outcome>
+            <to-view-id>/activitySearch.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <navigation-case>
             <from-outcome>index</from-outcome>
             <to-view-id>/index.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <navigation-case>
+            <from-outcome>interestList</from-outcome>
+            <to-view-id>/interestList.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
     

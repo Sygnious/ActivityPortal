@@ -25,6 +25,7 @@ public class ActivityBean implements java.io.Serializable {
     private Activity singleAct;
     private ArrayList<Activity> actList;
     private String currentPage;
+    private String keyWord;
     
     public ActivityBean(){
         // Compulsory Constructor
@@ -36,18 +37,34 @@ public class ActivityBean implements java.io.Serializable {
         if (obj instanceof Activity){
             singleAct = (Activity) obj;
             singleAct = Loader.loadSingleActivityOnID(singleAct.getActivityId());
-            return "activityOne";
+            return currentPage = "activityOne";
         }
         
         return null;
     }
     
     public String showAllActivities() throws Exception{
-        setActList(Loader.loadAllActivities());
-        return "activityList";
+        actList = Loader.loadAllActivities();
+        return currentPage = "activityList";
     }
 
+    public String showActivitiesByInterest(Object obj) throws Exception{
+        if (obj instanceof String){
+            String input = (String) obj;
+            actList = Loader.loadActivitiesOnInterest(input);
+            return currentPage = "activityList";
+        }
+        return null;
+    }
     
+    public String showActivitiesBySearch() throws Exception{
+        if (keyWord==null || keyWord.trim().equals("")){
+            return currentPage = "activitySearch"; // SecondNavigatorBean operates independently
+        }
+        actList = Loader.loadActivitiesOnSearch(keyWord);
+        return currentPage = "activityList";
+        
+    }
     
     // Methods for storing activities?
     
@@ -99,6 +116,20 @@ public class ActivityBean implements java.io.Serializable {
      */
     public void setCurrentPage(String currentPage) {
         this.currentPage = currentPage;
+    }
+
+    /**
+     * @return the keyWord
+     */
+    public String getKeyWord() {
+        return keyWord;
+    }
+
+    /**
+     * @param keyWord the keyWord to set
+     */
+    public void setKeyWord(String keyWord) {
+        this.keyWord = keyWord;
     }
     
     

@@ -23,13 +23,15 @@
                     </h:dataTable>
                 </h:panelGroup>
                 <h:panelGroup>
-                    Hvordan vil du søke etter aktiviteter?
-                    <br/>
-                    <p><h:commandButton value = "Finn alle aktiviteter" action = "#{actB.showAllActivities}"/></p>
-                    <p><h:commandButton value = "Finn etter interesser" action = "#{secNavB.interestList}"/></p>
-                    <p><h:commandButton value = "Finn etter område" /></p>
-                    <p><h:commandButton value = "Finn etter venner som deltar"/></p>
-                    <p><h:commandButton value = "Finn etter søkeord" action = "#{secNavB.activitySearch}"/></p>
+                    Velg ønsket interesse for å få liste over tilhørende aktiviteter:
+                   <h:dataTable value="#{secNavB.interests}" width="400" var="inte">
+                        <h:column>
+                            #{inte}
+                        </h:column>
+                        <h:column>
+                            <h:commandLink value="Velg" action="#{actB.showActivitiesByInterest(inte)}"/>
+                        </h:column>
+                    </h:dataTable>
                </h:panelGroup>
             </h:panelGrid>
         </h:form>

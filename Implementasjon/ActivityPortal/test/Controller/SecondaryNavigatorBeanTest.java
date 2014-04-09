@@ -6,6 +6,8 @@
 
 package Controller;
 
+import java.util.ArrayList;
+
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -21,7 +23,7 @@ import static org.junit.Assert.*;
 public class SecondaryNavigatorBeanTest {
     
     private String instanceString; // Many methods will include navigation
-
+    private SecondaryNavigatorBean instance;
     
     public SecondaryNavigatorBeanTest() {
     }
@@ -47,6 +49,23 @@ public class SecondaryNavigatorBeanTest {
         System.out.println("activityIndex");
         instanceString = new SecondaryNavigatorBean().activityIndex();
         assertEquals("Incorrect page navigation string", "activityIndex", instanceString);
+    }
+    
+    @Test
+    public void testActivitySearch() {
+        System.out.println("activitySearch");
+        instanceString = new SecondaryNavigatorBean().activitySearch();
+        assertEquals("Incorrect page navigation string", "activitySearch", instanceString);
+    }
+    
+    @Test
+    public void testInterestList() throws Exception{
+        System.out.println("interestList");
+        instance = new SecondaryNavigatorBean();
+        instanceString = instance.interestList();
+        assertEquals("Incorrect page navigation string", "interestList", instanceString);
+        assertEquals("array size is wrong", 9, instance.getInterests().size());
+        assertEquals("first instance in interestlist is wrong", "Teater og kultur", instance.getInterests().get(0));
     }
     
 }

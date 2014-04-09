@@ -83,7 +83,7 @@ INSERT INTO interest VALUES(1, 'Teater og kultur',
 'Forestillinger på teater, besøk på museum, informasjon og ordninger til kulturarrangement.');
 INSERT INTO interest VALUES(2, 'Tur ut i naturen', 'For deg som er glad i tur på fjell, skog og mark');
 INSERT INTO interest VALUES(3, 'Ski og snø', 'For deg som liker å gå på ski');
-INSERT INTO interest VALUES(4, 'NINTNEDO', 'For den som liker å spille på Nintendo i fritiden');
+INSERT INTO interest VALUES(4, 'NINTENDO', 'For den som liker å spille på Nintendo i fritiden');
 INSERT INTO interest VALUES(5, 'Vaffelkos', 'For den som er glad i å samles for å lage vaffler');
 INSERT INTO interest VALUES(6, 'Sang og musikk', 'Alt fra småsamlinger til arrangementer for de sangglade');
 INSERT INTO interest VALUES(7, 'Politikk', 'For de samfunnsinteresserte som diskuterer hvor samfunnet går i dag');

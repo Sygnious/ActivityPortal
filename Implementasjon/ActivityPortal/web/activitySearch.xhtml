@@ -5,8 +5,7 @@
     <h:head>
         <title>Facelet Title</title>
     </h:head>
-    <h:body>
-        <h:form>
+    <h:form>
             <h:panelGrid columns ="2">
                 <h:panelGroup>
                     Aktiviteter du er påmeldt:<br/>
@@ -23,16 +22,12 @@
                     </h:dataTable>
                 </h:panelGroup>
                 <h:panelGroup>
-                    Hvordan vil du søke etter aktiviteter?
-                    <br/>
-                    <p><h:commandButton value = "Finn alle aktiviteter" action = "#{actB.showAllActivities}"/></p>
-                    <p><h:commandButton value = "Finn etter interesser" action = "#{secNavB.interestList}"/></p>
-                    <p><h:commandButton value = "Finn etter område" /></p>
-                    <p><h:commandButton value = "Finn etter venner som deltar"/></p>
-                    <p><h:commandButton value = "Finn etter søkeord" action = "#{secNavB.activitySearch}"/></p>
+                    <p>Hvilke aktiviteter vil du søke etter?</p>
+                    <p>Søk etter tittel eller beskrivelse.</p>
+                    <p><h:inputText value="#{actB.keyWord}"/></p>
+                    <p><h:commandButton value="Søk" action="#{actB.showActivitiesBySearch()}"/></p>
                </h:panelGroup>
             </h:panelGrid>
         </h:form>
-    </h:body>
 </html>
 
