@@ -15,7 +15,11 @@ Sum: ?
 07.04.2014: 0.5 HR - Lagt inn søk eller alle aktiviteter på websiden.
 			  1 HR - Lagt inn detaljer om enkeltaktivitet. Må få bilde til å fungere
 
-TOTALT SÅ LANGT: 24 (27 med JUnit læring)
+08.04.2014: 2 HR - lese om og sette opp ui templates
+08.04.2014: 1.5 HR - forsøk på debug		
+			
+
+TOTALT SÅ LANGT:  (27 med JUnit læring)
 
 TODO:
 2nd-priority står på ikke høyeste prioritet.
