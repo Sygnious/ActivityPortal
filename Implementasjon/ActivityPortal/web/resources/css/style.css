@@ -19,8 +19,9 @@ and open the template in the editor.
 #sidebarLeft {
    border: thin solid lightGray;
    padding: 5px;
-   width: 200px;
-   background: #eeeeee;
+   width: 450px;
+   height: 900px;
+   background: #fefeef;
 }
 
 #content {
@@ -29,8 +30,8 @@ and open the template in the editor.
    background: #fefeef;
    position: absolute;
    right: 8px;
-   left: 230px;
-   height: 400px;
+   left: 450px;
+   height: 900px;
    top: 90px;
 }
 
