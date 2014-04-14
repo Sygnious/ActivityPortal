@@ -9,42 +9,42 @@
     <navigation-rule>
         <navigation-case>
             <from-outcome>activityCancelled</from-outcome>
-            <to-view-id>/activityCancelled.xhtml</to-view-id>
+            <to-view-id>/activity/activityCancelled.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
     
     <navigation-rule>
         <navigation-case>
             <from-outcome>activityIndex</from-outcome>
-            <to-view-id>/activityIndex.xhtml</to-view-id>
+            <to-view-id>/activity/activityIndex.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
     
     <navigation-rule>
         <navigation-case>
             <from-outcome>activityList</from-outcome>
-            <to-view-id>/activityList.xhtml</to-view-id>
+            <to-view-id>/activity/activityList.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
     
     <navigation-rule>
         <navigation-case>
             <from-outcome>activityOne</from-outcome>
-            <to-view-id>/activityOne.xhtml</to-view-id>
+            <to-view-id>/activity/activityOne.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
     
     <navigation-rule>
         <navigation-case>
             <from-outcome>activitySearch</from-outcome>
-            <to-view-id>/activitySearch.xhtml</to-view-id>
+            <to-view-id>/activity/activitySearch.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
     
     <navigation-rule>
         <navigation-case>
             <from-outcome>activitySignedOn</from-outcome>
-            <to-view-id>/activitySignedOn.xhtml</to-view-id>
+            <to-view-id>/activity/activitySignedOn.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
     
