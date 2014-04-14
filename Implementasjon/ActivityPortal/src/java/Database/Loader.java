@@ -20,7 +20,7 @@ import java.sql.*;
  */
 public class Loader {
     private static Connection con;
-    private static PreparedStatement stm; //First mainly used, number 2 used only when needed
+    private static PreparedStatement stm; 
     private static ResultSet res;
     private static final String demoDate =  "2014-03-01"; // For a full implementation, should be replaced by today's date;
     
@@ -52,7 +52,7 @@ public class Loader {
     
     // User loads
     
-    public static ArrayList<User> loadAllUsersExceptOwn(int userID){
+    public static ArrayList<User> loadAllUsersExceptOwn(int userID){ // TODO: Implement
         
         return null;
     }
@@ -299,5 +299,16 @@ public class Loader {
         }
         return resultList;
     }
+    
+    /*
+    // Used to determine if a specified User participates in an Activity, 
+    // by loading from Activity_Person table with specified IDs
+    // Expected return values: 0 if not in table, 1 if in table.
+    // Will be used for rendering between "Sign up" or "Cancel sign up" buttons
+    // on the web pages for activity details.
+    public static int loadIfParticipating() throws Exception{
+        
+        return -1;
+    }*/
     
 }

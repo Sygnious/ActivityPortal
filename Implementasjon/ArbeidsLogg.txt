@@ -18,11 +18,12 @@ Sum: ?
 08.04.2014: 2 HR - lese om og sette opp ui templates
 08.04.2014: 2.5 HR - forsøk på debug		
 09.04.2014: 3 HR - Implementert søk etter interesser + søk etter søkeord. Oppdatert filter slik at alt sorteres etter dato, dette gjøres fra databasens side
-13.04.2014: 0.5 HR - Fant ut av formatteringsfeilen. CSS-filen er nå i bruk
-			15:15-
+13.04.2014: 0.5 HR - Fant ut av formatteringsfeilen. CSS-filen er nå i bruk på alle sider
+			4 HR: Implementert Storer: Endring av bruker, legge til aktivitet til bruker, fjerne aktivitet fra bruker
+14.04.2015: 16:15
 			
 
-TOTALT SÅ LANGT:  (27 med JUnit læring)
+TOTALT SÅ LANGT: 
 
 TODO:
 2nd-priority står på ikke høyeste prioritet.
@@ -33,18 +34,20 @@ TAGGED er neste på planen
 	- Lage knapper ("Hva vil du gjøre?")
 		- Vise aktiviteter
 			- Alle (DONE)
-			- Vise detaljer (TAGGED)
-			- Søk etter interesse
+			- Vise detaljer (DONE)
+				- Påmelding (TAGGED)
+				- Avmelding (TAGGED)
+			- Søk etter interesse (DONE)
 			- Søk etter venner (NO WAY OR 2nd priority)
-			- Søk etter søkeord
+			- Søk etter søkeord (DONE)
 			- Søk etter område
 				- Områdenr
 				- Postnummer (2nd-priority)
-				- Radious (NO WAY)
+				- Radius (NO WAY)
 		- Søke etter venner (2nd-priority OR NO WAY)
 		- Administrere egen bruker (2nd-priority)
 - Få laget oversikt over tilhørende aktiviteter (DONE) (gjelder konstant)
-	- Lage egen side, som implementeres med ui-template (TAGGED (Flyttes til i morgen)) (Må ha format klar til sceenshots innen onsdag)
+	- Lage egen side, som implementeres med ui-template (DONE)
 - 
 
 - Databasemuligheter som finnes som må tas i bruk
@@ -53,7 +56,7 @@ TAGGED er neste på planen
 		- Load all others (Not implemented)
 		- 
 	- Activity
-		- Load all activities
+		- Load all activities (DONE)
 		- Load all activities on ID (DONE... sort of)
 	- Stash
 		- Table size (could be useful)

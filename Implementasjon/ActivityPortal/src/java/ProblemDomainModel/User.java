@@ -102,7 +102,6 @@ public class User implements java.io.Serializable{
         }
     }
     
-    
     public void removeActivity(Activity deadActivity){
         if (deadActivity!=null){
             partActs.remove(deadActivity);

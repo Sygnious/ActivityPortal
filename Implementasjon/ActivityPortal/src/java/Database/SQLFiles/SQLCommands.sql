@@ -46,8 +46,8 @@ INSERT INTO post VALUES(1000, 'Osloveien', 43);
 INSERT INTO post VALUES(1001, 'OsloveienLight', 43);
 
 CREATE TABLE person(person_id INT NOT NULL,
-                    last_name VARCHAR(50) NOT NULL,
-                    first_name VARCHAR(70) NOT NULL,
+                    first_name VARCHAR(50) NOT NULL,
+                    last_name VARCHAR(70) NOT NULL,
                     age INT,
                     address VARCHAR(50),
                     post_id INT,
