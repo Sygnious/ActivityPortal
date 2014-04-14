@@ -17,7 +17,9 @@
                                 <h:panelGroup>#{actB.singleAct.name}</h:panelGroup>
 
                                 <h:panelGroup> <!--Image here--> </h:panelGroup>
-                                <h:panelGroup><h:graphicImage name="resources/images/Waffles.jpg"/></h:panelGroup>
+                                <h:panelGroup>
+                                    <h:graphicImage library ="images" name="Waffles2.jpg"/>
+                                </h:panelGroup>
                                 
                                 <h:panelGroup>Dato: </h:panelGroup>
                                 <h:panelGroup>#{actB.singleAct.dateAsString}</h:panelGroup>
@@ -27,7 +29,15 @@
                             </h:panelGrid>
                         </h:panelGroup>
                         <h:panelGroup>
-                            <p><h:commandButton value = "Meld på"/></p>
+                            <p>
+                                <h:commandButton value = "Meld på"
+                                                rendered = "#{!coopB.isRendered}"
+                                                action = "#{coopB.signUserOnActivity()}"/>
+                                <h:commandButton value = "Meld av"
+                                                rendered = "#{coopB.isRendered}"
+                                                action = "#{coopB.cancelUserFromActivity()}"
+                                                />
+                            </p>
                             <p>Påmeldte:</p>
                             <h:dataTable value="#{actB.singleAct.participants}" width="400" var="parti">
                                 <h:column>

@@ -8,6 +8,13 @@
     
     <navigation-rule>
         <navigation-case>
+            <from-outcome>activityCancelled</from-outcome>
+            <to-view-id>/activityCancelled.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <navigation-case>
             <from-outcome>activityIndex</from-outcome>
             <to-view-id>/activityIndex.xhtml</to-view-id>
         </navigation-case>
@@ -36,10 +43,26 @@
     
     <navigation-rule>
         <navigation-case>
+            <from-outcome>activitySignedOn</from-outcome>
+            <to-view-id>/activitySignedOn.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <navigation-case>
             <from-outcome>index</from-outcome>
             <to-view-id>/index.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
+    
+    <naviation-rule>
+        <navigation-rule>
+        <navigation-case>
+            <from-outcome>error</from-outcome>
+            <to-view-id>/error.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    </naviation-rule>
     
     <navigation-rule>
         <navigation-case>
