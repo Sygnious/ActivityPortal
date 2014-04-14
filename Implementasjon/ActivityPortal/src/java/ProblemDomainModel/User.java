@@ -24,7 +24,7 @@ public class User implements java.io.Serializable{
     private Post postAddress;
     private ArrayList<String> interests;
     private ArrayList<Activity> partActs; //partActs stands for participated activities
-    //private ArrayList<User> friends;    //TODO: Implement at lager stage
+    private ArrayList<User> friends;
     
     //1 Constructors:
     
@@ -36,8 +36,9 @@ public class User implements java.io.Serializable{
         this.age = -1;
         this.address = "";
         this.postAddress=new Post(-1,"");
-        this.interests = new ArrayList<String>();
-        this.partActs = new ArrayList<Activity>();
+        this.interests = new ArrayList();
+        this.partActs = new ArrayList();
+        this.friends = new ArrayList();
     }
     
     // Regular constructor
@@ -49,8 +50,9 @@ public class User implements java.io.Serializable{
         this.age = age;
         this.address = address;
         this.postAddress = postAddress;
-        this.interests = new ArrayList<String>();
-        this.partActs = new ArrayList<Activity>();
+        this.interests = new ArrayList();
+        this.partActs = new ArrayList();
+        this.friends = new ArrayList();
     }
     // Constructor using 2 String inputs for postAddress instead of object
     public User(int userId, String firstName, String surName, int age, String address, int postId, String postAddress){
@@ -61,23 +63,26 @@ public class User implements java.io.Serializable{
         this.age = age;
         this.address = address;
         this.postAddress = new Post(postId, postAddress);
-        this.interests = new ArrayList<String>();
-        this.partActs = new ArrayList<Activity>();
+        this.interests = new ArrayList();
+        this.partActs = new ArrayList();
+        this.friends = new ArrayList();
     }
+    //2 Class-specific methods:
     
+    // Methods for Interests
     public void insertInterest(String newInterest){
         if (newInterest!=null && !newInterest.trim().equals("")){
             interests.add(newInterest);
         }
     }
     
-    //2 Class-specific methods:
     public void removeInterest(String deadInterest){
         if (deadInterest!=null && !deadInterest.trim().equals("")){
             interests.remove(deadInterest);
         }
     }
     
+    // Methods for participated activities
     public void insertActivity(Activity newActivity){
         if (newActivity!=null){
             partActs.add(newActivity);
@@ -93,13 +98,8 @@ public class User implements java.io.Serializable{
         return null;
     }
     
-    // May be needed for choosing participation or not in the jsf-pages
     public boolean participatesInActivity(int activityId){
-        if (findActivityById(activityId) != null){
-            return true;
-        } else {
-            return false;
-        }
+        return (findActivityById(activityId) != null);
     }
     
     public void removeActivity(Activity deadActivity){
@@ -108,7 +108,31 @@ public class User implements java.io.Serializable{
         }
     }
     
+    // Methods for friends
+    public void insertFriend(User friend){
+        if (friend != null){
+            friends.add(friend);
+        }
+    }
     
+    public User findFriendById(int userId){
+        for (User selectedUser : friends){
+            if (selectedUser.getUserId()==userId){
+                return selectedUser;
+            } 
+       }
+       return null;
+    }
+    
+    public boolean hasFriend(int activityId){
+        return (findFriendById(activityId) != null);
+    }
+    
+    public void removeFriend(User hostile){
+        if (hostile!=null){
+            friends.remove(hostile);
+        }
+    }
 
     
     //3 Get- and set-methods
@@ -222,6 +246,20 @@ public class User implements java.io.Serializable{
      */
     public void setPartActs(ArrayList<Activity> partActs) {
         this.partActs = partActs;
+    }
+
+    /**
+     * @return the friends
+     */
+    public ArrayList<User> getFriends() {
+        return friends;
+    }
+
+    /**
+     * @param friends the friends to set
+     */
+    public void setFriends(ArrayList<User> friends) {
+        this.friends = friends;
     }
     
 }

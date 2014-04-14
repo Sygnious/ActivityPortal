@@ -66,7 +66,7 @@ public class ActivityTest {
     @Test
     public void testRemoveInterest() {
         System.out.println("insertInterest");
-        //Preparing individual test:
+        // Set up:
         ArrayList<String> instanceList = new ArrayList();
         instanceList.add("Content1");
         instanceList.add("Content2");
@@ -75,7 +75,7 @@ public class ActivityTest {
         instanceList.add("Content5");
         instanceList.add("Content6");
         instance.setInterests(instanceList);
-        //Performing test:
+        // Execute:
         instance.removeInterest("Content1");
         instance.removeInterest("Content1"); // Should be ignored
         instance.removeInterest("Content2");
@@ -99,7 +99,7 @@ public class ActivityTest {
     @Test
     public void testFindUserById() {
         System.out.println("findUserById");
-        //Preparing individual test:
+        // Set up:
         ArrayList<User> instanceList = new ArrayList();
         instanceList.add(new User(1, "Content1", null, 7050, null, null));
         instanceList.add(new User(2, "Content2", null, 7050, null, null));
@@ -107,7 +107,7 @@ public class ActivityTest {
         instanceList.add(new User(4, "Content4", null, 7050, null, null));
         instance.setParticipants(instanceList);
         
-        //Performing test:
+        // Execute:
         User result1 = instance.findUserById(2);
         User result2 = instance.findUserById(8); //Should return null
         assertEquals("Wrong user found", "Content2", result1.getFirstName());
@@ -120,6 +120,7 @@ public class ActivityTest {
     @Test
     public void testRemoveUser() {
         System.out.println("removeUser");
+        // Set up
         ArrayList<User> instanceList = new ArrayList();
         instanceList.add(new User(1, "Content1", null, 7050, null, null));
         instanceList.add(new User(2, "Content2", null, 7050, null, null));
@@ -129,7 +130,7 @@ public class ActivityTest {
         instanceList.add(new User(6, "Content6", null, 7050, null, null));
         instance.setParticipants(instanceList);
         
-        //Performing test
+        // Execute
         User deletion;
         deletion = instance.findUserById(1);
         instance.removeUser(deletion);

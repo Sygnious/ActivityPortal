@@ -5,6 +5,7 @@ DROP TABLE activity_interest;
 DROP TABLE activity;
 DROP TABLE person_interest;
 DROP TABLE interest;
+DROP TABLE friends;
 DROP TABLE person;
 DROP TABLE post;
 DROP TABLE town;
@@ -73,6 +74,35 @@ INSERT INTO person VALUES(13, 'Lise', 'Karslen', 66, 'Moholtveien 6', 7052);
 INSERT INTO person VALUES(14, 'Lars', 'Larsen', 66, 'Moholtveien 7', 7052);
 INSERT INTO person VALUES(15, 'Jens', 'Stoltenjern', 66, 'Moholtveien 8', 7052);
 INSERT INTO person VALUES(16, 'User', 'User', NULL, NULL, NULL); -- Chosen test user for the Java application
+
+CREATE TABLE friends(person_id INT NOT NULL,
+                        friend_id INT NOT NULL,
+                        PRIMARY KEY(person_id, friend_id));
+
+ALTER TABLE friends
+ADD FOREIGN KEY(person_id)
+REFERENCES person(person_id);
+
+ALTER TABLE friends
+ADD FOREIGN KEY(friend_id)
+REFERENCES person(person_id);
+
+INSERT INTO friends VALUES(1,2);
+INSERT INTO friends VALUES(1,3);
+INSERT INTO friends VALUES(1,4);
+INSERT INTO friends VALUES(1,5);
+INSERT INTO friends VALUES(1,6);
+INSERT INTO friends VALUES(1,7);
+INSERT INTO friends VALUES(2,1);
+INSERT INTO friends VALUES(2,3);
+INSERT INTO friends VALUES(2,4);
+INSERT INTO friends VALUES(3,1);
+INSERT INTO friends VALUES(3,2);
+INSERT INTO friends VALUES(3,4);
+INSERT INTO friends VALUES(8,9);
+INSERT INTO friends VALUES(8,10);
+INSERT INTO friends VALUES(11,4);
+
 
 CREATE TABLE interest(interest_id INT NOT NULL,
                         interest_name VARCHAR(40) UNIQUE NOT NULL,

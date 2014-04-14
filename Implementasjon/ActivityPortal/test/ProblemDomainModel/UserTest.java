@@ -64,7 +64,8 @@ public class UserTest {
     @Test
     public void testRemoveInterest() {
         System.out.println("removeInterest");
-        //Preparing individual test:
+        
+        // Set up
         ArrayList<String> instanceList = new ArrayList();
         instanceList.add("Content1");
         instanceList.add("Content2");
@@ -73,7 +74,8 @@ public class UserTest {
         instanceList.add("Content5");
         instanceList.add("Content6");
         instance.setInterests(instanceList);
-        //Performing test:
+        
+        // Execute
         instance.removeInterest("Content1");
         instance.removeInterest("Content1"); // Should be ignored
         instance.removeInterest("Content2");
@@ -104,7 +106,7 @@ public class UserTest {
     @Test
     public void testFindActivityById() {
         System.out.println("findActivityById");
-        //Preparing individual test:
+        // Set up
         ArrayList<Activity> instanceList = new ArrayList();
         instanceList.add(new Activity(1, "Content1", null, 1));
         instanceList.add(new Activity(2, "Content2", null, 1));
@@ -112,7 +114,7 @@ public class UserTest {
         instanceList.add(new Activity(4, "Content4", null, 1));
         instance.setPartActs(instanceList);
         
-        //Performing test:
+        // Execute
         Activity result1 = instance.findActivityById(2);
         Activity result2 = instance.findActivityById(8); //Should return null
         assertEquals("Wrong activity found", "Content2", result1.getName());
@@ -142,7 +144,7 @@ public class UserTest {
     @Test
     public void testRemoveActivity() {
         System.out.println("removeActivity");
-        //Preparing individual test
+        // Set up
         ArrayList<Activity> instanceList = new ArrayList();
         instanceList.add(new Activity(1, "Content1", null, 1));
         instanceList.add(new Activity(2, "Content2", null, 1));
@@ -152,7 +154,7 @@ public class UserTest {
         instanceList.add(new Activity(6, "Content6", null, 1));
         instance.setPartActs(instanceList);
         
-        //Performing test
+        // Execute
         Activity deletion;
         deletion = instance.findActivityById(1);
         instance.removeActivity(deletion);
@@ -167,5 +169,87 @@ public class UserTest {
         assertEquals("ArrayList size wrong", 3, instance.getPartActs().size());
         assertEquals("First input wrong", "Content2", instance.getPartActs().get(0).getName());
         assertEquals("Last input wrong", "Content5", instance.getPartActs().get(instance.getPartActs().size()-1).getName());
+    }
+    
+    @Test
+    public void testInsertFriend(){
+        System.out.println("insertFriend");
+        instance.insertFriend(new User(2, "Clark", "Kent", 30, null, null));
+        instance.insertFriend(new User(3, "Bruce", "Wayne", 35, null, null));
+        instance.insertActivity(null); //Should be ignored
+        instance.insertFriend(new User(4, "Lisa", "Harris", 90, null, null));
+        assertEquals("ArrayList size wrong", 3, instance.getFriends().size());
+        assertEquals("First input wrong", "Clark", instance.getFriends().get(0).getFirstName());
+        assertEquals("Last input wrong", "Lisa", instance.getFriends().get(instance.getFriends().size()-1).getFirstName());
+    }
+    
+    @Test
+    public void testFindFriendByID(){
+        System.out.println("findFriendByID");
+        // Set up
+        ArrayList<User> instanceList = new ArrayList();
+        instanceList.add(new User(2, "Pjodor", "Larsen", 51, "Addresse 33", new Post(7050, "Trondheim")));
+        instanceList.add(new User(3, "Jens", "Larsen", 52, "Addresse 33", new Post(7050, "Trondheim")));
+        instanceList.add(new User(4, "Lise", "Larsen", 53, "Addresse 33", new Post(7050, "Trondheim")));
+        instanceList.add(new User(5, "Nasse", "Larsen", 54, "Addresse 33", new Post(7050, "Trondheim")));
+        instanceList.add(new User(6, "Gunhild", "Larsen", 55, "Addresse 33", new Post(7050, "Trondheim")));
+        instance.setFriends(instanceList);
+        
+        // Execute
+        
+        User result1 = instance.findFriendById(2);
+        User result2 = instance.findFriendById(8);
+        assertEquals("Wrong user found", "Pjodor", result1.getFirstName());
+        assertNull("Error when handling non-existing id", result2);
+    }
+    
+    @Test
+    public void testHasFriend(){
+        System.out.println("hasFriend");
+        // Set up
+        ArrayList<User> instanceList = new ArrayList();
+        instanceList.add(new User(2, "Pjodor", "Larsen", 51, "Addresse 33", new Post(7050, "Trondheim")));
+        instanceList.add(new User(3, "Jens", "Larsen", 52, "Addresse 33", new Post(7050, "Trondheim")));
+        instanceList.add(new User(4, "Lise", "Larsen", 53, "Addresse 33", new Post(7050, "Trondheim")));
+        instanceList.add(new User(5, "Nasse", "Larsen", 54, "Addresse 33", new Post(7050, "Trondheim")));
+        instanceList.add(new User(6, "Gunhild", "Larsen", 55, "Addresse 33", new Post(7050, "Trondheim")));
+        instance.setFriends(instanceList);
+        
+        // Execute
+        
+        boolean result1 = instance.hasFriend(2);
+        boolean result2 = instance.hasFriend(8);
+        assertEquals("Wrong: Claims to not having existing friend", true, result1);
+        assertEquals("Wrong: Claims to have non-existing friend", false, result2);
+    }
+    
+    @Test
+    public void testRemoveFriend(){
+        System.out.println("removeFriend");
+        // Set up
+        ArrayList<User> instanceList = new ArrayList();
+        instanceList.add(new User(2, "Friend1", null, 100, null, null));
+        instanceList.add(new User(3, "Friend2", null, 100, null, null));
+        instanceList.add(new User(4, "Friend3", null, 100, null, null));
+        instanceList.add(new User(5, "Friend4", null, 100, null, null));
+        instanceList.add(new User(6, "Friend5", null, 100, null, null));
+        instanceList.add(new User(7, "Friend6", null, 100, null, null));
+        instance.setFriends(instanceList);
+        
+        // Execute
+        User deletion;
+        deletion = instance.findFriendById(2);
+        instance.removeFriend(deletion);
+        deletion = instance.findFriendById(3);
+        instance.removeFriend(deletion);
+        instance.removeFriend(null); //Should be ignored
+        deletion = instance.findFriendById(9); //Should return null
+        instance.removeFriend(deletion); //Should be ignored
+        deletion = instance.findFriendById(6);
+        instance.removeFriend(deletion);
+        
+        assertEquals("ArrayList size wrong", 3, instance.getFriends().size());
+        assertEquals("First input wrong", "Friend3", instance.getFriends().get(0).getFirstName());
+        assertEquals("Last input wrong", "Friend6", instance.getFriends().get(instance.getFriends().size()-1).getFirstName());
     }
 }

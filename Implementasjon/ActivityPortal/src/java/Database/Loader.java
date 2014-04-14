@@ -52,9 +52,46 @@ public class Loader {
     
     // User loads
     
-    public static ArrayList<User> loadAllUsersExceptOwn(int userID){ // TODO: Implement
-        
-        return null;
+    public static ArrayList<User> loadAllUsersExceptOwn(int userID) throws Exception{ // TODO: Implement
+        ArrayList<User> result = new ArrayList();
+        try{
+            con = ConnectionHandler.openConnection();
+            // Executing query
+            String stmString = "SELECT * FROM person WHERE person_id <> ? ORDER BY last_name";
+            stm = con.prepareStatement(stmString);
+            stm.setInt(1, userID);
+            res = stm.executeQuery();
+            while(res.next()){
+                result.add(new User(res.getInt(1), res.getString(2), res.getString(3), res.getInt(4), null, null)); // Skipping address and postAdress
+            }
+        } catch (Exception e){
+            ConnectionHandler.printError(e, "Loader.loadAllUsersExceptOwn");
+            throw e;
+        } finally {
+            ConnectionHandler.closeAll(res, stm, con);
+        }
+        return result;
+    }
+    
+    public static ArrayList<User> loadAllUserFriends(int userID) throws Exception{ // TODO: Implement
+        ArrayList<User> result = new ArrayList();
+        try{
+            con = ConnectionHandler.openConnection();
+            // Executing query
+            String stmString = "SELECT a.* FROM person a JOIN friends b ON (a.person_id = b.friend_id AND b.person_id = ?) ORDER BY a.last_name";
+            stm = con.prepareStatement(stmString);
+            stm.setInt(1, userID);
+            res = stm.executeQuery();
+            while(res.next()){
+                result.add(new User(res.getInt(1), res.getString(2), res.getString(3), res.getInt(4), null, null)); // Skipping address and postAdress
+            }
+        } catch (Exception e){
+            ConnectionHandler.printError(e, "Loader.loadAllUserFriends");
+            throw e;
+        } finally {
+            ConnectionHandler.closeAll(res, stm, con);
+        }
+        return result;
     }
     
     public static User loadSingleUserOnID(int userID) throws Exception{
@@ -68,6 +105,7 @@ public class Loader {
             stm.setInt(1, userID);
             res = stm.executeQuery();
             
+            // 1
             // Loading details of single user
             Post post;
             res.next();
@@ -79,7 +117,9 @@ public class Loader {
             result = new User(res.getInt(1), res.getString(2), res.getString(3), res.getInt(4), res.getString(5), post);
             res.close();
             stm.close();
-            // Execuring query for interests covered by activity
+            
+            // 2
+            // Executing query for interests the user has
             stmString = "SELECT a.interest_name FROM interest a JOIN person_interest b ON (a.interest_id = b.interest_id AND b.person_id = ?)";
             stm = con.prepareStatement(stmString);
             stm.setInt(1, userID);
@@ -90,17 +130,33 @@ public class Loader {
             }
             res.close();
             stm.close();
-            // Execuring query for activities user participates in
+            
+            // 3
+            // Executing query for activities user participates in
             stmString = "SELECT a.* FROM activity a JOIN activity_person b ON (a.activity_id = b.activity_id AND b.person_id = ?) ORDER BY activity_date";
             stm = con.prepareStatement(stmString);
             stm.setInt(1, userID);
             res = stm.executeQuery();
-            // Loading details into User List
+            // Loading details into User PartActsList
             Activity instance;
             while (res.next()){//TODO: Handle NULL-values
                 instance = new Activity(res.getInt(1), res.getString(2), res.getString(3), res.getInt(4));
                 instance.setDate(instance.convertToGregorian(res.getString(5)));
                 result.insertActivity(instance);
+            }
+            res.close();
+            stm.close();
+            
+            // 4
+            // Executing query for friends connected to user
+            stmString = "SELECT a.* FROM person a JOIN friends b ON (a.person_id = b.friend_id AND b.person_id = ?) ORDER BY a.last_name";
+            stm = con.prepareStatement(stmString);
+            stm.setInt(1, userID);
+            res = stm.executeQuery();
+            // Loading details into User friends list 
+            while(res.next()){
+                //Skipping address and postAdress, those details may very well be loaded for a person when closely inspecting
+                result.insertFriend(new User(res.getInt(1), res.getString(2), res.getString(3), res.getInt(4), null, null));
             }
         } catch (Exception e){
             ConnectionHandler.printError(e, "Loader.loadSingleUserOnID()");

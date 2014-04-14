@@ -101,9 +101,9 @@ public class CooperationBeanTest {
 
         // Test 1: Adding new activity:
         // Execute
-        String result = instance.signUserOnActivity();
+        instanceString = instance.signUserOnActivity();
         int newSize = instanceUserB.getSingleUser().getPartActs().size();
-        assertEquals("resulting string was wrong", "activitySignedOn", result);
+        assertEquals("Incorrect page navigation string", "activitySignedOn", instanceString);
         // Testing difference between old and new size, the static number may vary depending on implementation.
         assertEquals("resulting size in participated activity list is not increased", 5, newSize);
         Activity firstAct = instanceUserB.getSingleUser().getPartActs().get(0); //Should be first activty by given date
@@ -111,9 +111,9 @@ public class CooperationBeanTest {
         
         // Test 2 Adding already added activity, should cause error and no update
         // Execute
-        result = instance.signUserOnActivity();
+        instanceString = instance.signUserOnActivity();
         newSize = instanceUserB.getSingleUser().getPartActs().size();
-        assertEquals("resulting string was wrong", "error", result);
+        assertEquals("Incorrect page navigation string", "error", instanceString);
         assertEquals("resulting size in participated activity list has not remained unchanged", 5, newSize);
     }
     
@@ -126,20 +126,20 @@ public class CooperationBeanTest {
         // Removing activity with ID 8 from user (and thus database).
         
         // Test 1: Remove existing activity (ID 8),
-        String result = instance.cancelUserFromActivity();
+        instanceString = instance.cancelUserFromActivity();
         int newSize = instanceUserB.getSingleUser().getPartActs().size();
-        assertEquals("resulting string was wrong", "activityCancelled", result);
+        assertEquals("Incorrect page navigation string", "activityCancelled", instanceString);
         // Testing difference between old and new size, the static number may vary depending on implementation.
-        assertEquals("resulting size in participated activity list is not decreased", 3, newSize);
+        assertEquals("Resulting size in participated activity list is not decreased", 3, newSize);
         Activity firstAct = instanceUserB.getSingleUser().getPartActs().get(0); //First activity removed, replaced by 2nd.
-        assertEquals("second activity moved to first index in list has wrong id", 1, firstAct.getActivityId());
+        assertEquals("Second activity moved to first index in list has wrong id", 1, firstAct.getActivityId());
         
         // Test 2 Removing already removed activity with ID 8, should cause error and no uptdate
         // Execute
-        result = instance.cancelUserFromActivity();
+        instanceString = instance.cancelUserFromActivity();
         newSize = instanceUserB.getSingleUser().getPartActs().size();
-        assertEquals("resulting string was wrong", "error", result);
-        assertEquals("resulting size in participated activity list has not remained unchanged", 3, newSize);
+        assertEquals("Incorrect page navigation string", "error", instanceString);
+        assertEquals("Resulting size in participated activity list has not remained unchanged", 3, newSize);
     }
     
     // Helping methods for tests that are using userID2

@@ -48,10 +48,31 @@ public class LoaderTest {
         System.out.println("getTableSize");
         // Using table "Person" from database for this instance
         int count = Loader.getTableSize("Person");
-        assertEquals("The expected table size is not corrext", 16, count);
+        assertEquals("The expected table size is not correct", 16, count);
     }
     
     // User load tests
+    
+    @Test
+    public void testLoadAllUsersExceptOwn() throws Exception{
+        System.out.println("loadAllUsersExceptOwn");
+        ArrayList<User> instance = Loader.loadAllUsersExceptOwn(1);
+        assertEquals("The expected list sie is not correct", 15, instance.size()); //With test files, number of users are 16
+        assertEquals("First instance userID is not correct", 10, instance.get(0).getUserId());
+        assertEquals("First instance firstName is not correct", "U-Known", instance.get(0).getFirstName());
+        assertEquals("First instance surName is not correct", "Anonymious", instance.get(0).getSurName());
+    }
+    
+    @Test
+    public void testLoadAllUserFriends() throws Exception{
+        System.out.println("loadAllUserFriends");
+        ArrayList<User> instance = Loader.loadAllUserFriends(1);
+        assertEquals("The expected list size is not correct", 6, instance.size()); //Number of friends connected to user with id 1 is 6
+        assertEquals("First instance userID is not correct", 5, instance.get(0).getUserId());
+        assertEquals("First instance firstName is not correct", "Ludvig", instance.get(0).getFirstName());
+        assertEquals("First instance surName is not correct", "Hansen", instance.get(0).getSurName());
+    }
+    
     @Test
     public void testLoadSingleUserOnID() throws Exception{
         System.out.println("loadSingleUserOnID");
@@ -59,7 +80,7 @@ public class LoaderTest {
         // Checking single variables
         assertEquals("userID is not correct", 2, instance.getUserId());
         assertEquals("firstName is not correct", "Tove", instance.getFirstName());
-        assertEquals("lastName is not correct", "Johansen", instance.getSurName());
+        assertEquals("surName is not correct", "Johansen", instance.getSurName());
         assertEquals("age is not correct", 61, instance.getAge());
         assertEquals("address is not correct", "Moholt Allé 555-555-555", instance.getAddress());
         assertEquals("postID is not correnct", 7050, instance.getPostAddress().getPostId());
@@ -75,6 +96,13 @@ public class LoaderTest {
         assertEquals("partActs size is not correnct", 4, instance.getPartActs().size());
         assertEquals("partActs instance ID is not correnct", 8, instance.getPartActs().get(0).getActivityId());
         assertEquals("partActs instance name is not correnct", "Skitur i Flåmarka", instance.getPartActs().get(0).getName());
+        
+        // Friends
+        assertEquals("friends size is not correct", 3, instance.getFriends().size());
+        assertEquals("friends instance ID is not correnct", 3, instance.getFriends().get(0).getUserId());
+        assertEquals("friends instance firstName is not correnct", "Bjørn", instance.getFriends().get(0).getFirstName());
+        assertEquals("friends instance surName is not correnct", "Johansen", instance.getFriends().get(0).getSurName());
+        
     }
     
     // Acitivty load tests

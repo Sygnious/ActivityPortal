@@ -22,9 +22,8 @@ import java.util.ArrayList;
 @SessionScoped
 public class UserBean implements java.io.Serializable{
 
-    //@Inject private User singleUser;
     private User singleUser = new User();
-    //@Inject private ArrayList<User> userList;
+    private User otherUser = new User();
     private ArrayList<User> userList = new ArrayList();
     private String currentPage;
     
@@ -53,7 +52,21 @@ public class UserBean implements java.io.Serializable{
         return currentPage = "index";
     }
     
+    public String showAllOtherUsers() throws Exception{
+        userList = Loader.loadAllUsersExceptOwn(singleUser.getUserId());
+        return currentPage = "userList";
+    }    
     
+    
+    public String selectUser(Object obj) throws Exception{
+        if (obj instanceof User){
+            User instance = (User) obj;
+            otherUser = Loader.loadSingleUserOnID(instance.getUserId());
+            return currentPage = "userOne";
+        }
+        
+        return null;
+    }
     // Get- and set-methods
     
     /**
@@ -96,5 +109,19 @@ public class UserBean implements java.io.Serializable{
      */
     public void setCurrentPage(String currentPage) {
         this.currentPage = currentPage;
+    }
+
+    /**
+     * @return the otherUser
+     */
+    public User getOtherUser() {
+        return otherUser;
+    }
+
+    /**
+     * @param otherUser the otherUser to set
+     */
+    public void setOtherUser(User otherUser) {
+        this.otherUser = otherUser;
     }
 }

@@ -41,6 +41,7 @@ public class ActivityBeanTest {
     
     @Before
     public void setUp() {
+        instance = new ActivityBean();
     }
     
     @After
@@ -53,7 +54,6 @@ public class ActivityBeanTest {
     public void testShowAllActivities() throws Exception {
         System.out.println("showAllActivitye");
         //Execute
-        instance = new ActivityBean();
         instanceString = instance.showAllActivities();
         instanceActList = instance.getActList();
         instanceAct = instanceActList.get(0);
@@ -74,13 +74,12 @@ public class ActivityBeanTest {
         // Though not correct happening in the application, a chosen activity
         // from the web page still has activity id-number that is used.
         instanceAct = new Activity(1, null, null, -99); 
-        instance = new ActivityBean();
         
         // Execute 1: Should not do anything if parameter ojbect is not of type Activity
         instanceString = instance.showActivityDetails("This String is a hoax and will not work");
         
         assertNull("instanceString was not null when using wrong object type", instanceString);
-        assertNull("Activity details changed even if object type was wrong for method", instanceAct.getName());
+        assertNull("Activity details changed even if object type was wrong for method", instanceAct.getName());//TODO: Dobbelsjekk
         
         // Execute 2: Changes when parameter object is of type Activiy:
         instanceString = instance.showActivityDetails(instanceAct);
@@ -95,7 +94,6 @@ public class ActivityBeanTest {
     @Test
     public void testShowActivitiesByInterest() throws Exception{
         System.out.println("showActivitiesByInterest");
-        instance = new ActivityBean();
         // First test by null
         instanceString = instance.showActivitiesByInterest(null);
         assertNull("return was not null when input was null", instanceString);
@@ -115,7 +113,6 @@ public class ActivityBeanTest {
     @Test
     public void testShowActivitiesBySearch() throws Exception{
         System.out.println("showActivitiesBySearch");
-        instance = new ActivityBean();
         instance.setCurrentPage("activitySearch"); //The supposed page when performing this
         // First test by null
         instance.setKeyWord(null);
