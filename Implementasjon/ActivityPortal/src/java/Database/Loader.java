@@ -326,15 +326,68 @@ public class Loader {
         return resultList;
     }
     
+    public static ArrayList<Activity> loadActivitiesOnOneFriend(int friendId) throws Exception{
+        ArrayList<Activity> resultList = new ArrayList();
+        Activity instance;
+        
+        try {
+            con = ConnectionHandler.openConnection();
+            // Executing query for activities connected to friends
+            String stmString = "SELECT DISTINCT a.* FROM activity a JOIN activity_person b ON (a.activity_id = b.activity_id AND b.person_id = ?) ORDER BY a.activity_date";
+            stm = con.prepareStatement(stmString);
+            stm.setInt(1, friendId);
+            res = stm.executeQuery();
+            
+            // Loading Activity List
+            while(res.next()){
+                instance = new Activity(res.getInt(1), res.getString(2), res.getString(3), res.getInt(4));
+                instance.setDate(instance.convertToGregorian(res.getString(5)));
+                resultList.add(instance);
+            }
+        } catch (Exception e){
+            ConnectionHandler.printError(e, "Loader.loadActivitiesOnOneFriend");
+            throw e;
+        } finally {
+            ConnectionHandler.closeAll(res, stm, con);
+        }
+        return resultList;
+    }
+    
+    public static ArrayList<Activity> loadActivitiesOnAllFriends(int userId) throws Exception{
+        ArrayList<Activity> resultList = new ArrayList();
+        Activity instance;
+        
+        try {
+            con = ConnectionHandler.openConnection();
+            // Executing query for activities connected to friends
+            String stmString = "SELECT DISTINCT a.* FROM activity a JOIN activity_person b ON (a.activity_id = b.activity_id) JOIN friends c ON (b.person_id=c.friend_id AND c.person_id = ?) ORDER BY a.activity_date";
+            stm = con.prepareStatement(stmString);
+            stm.setInt(1, userId);
+            res = stm.executeQuery();
+            
+            // Loading Activity List
+            while(res.next()){
+                instance = new Activity(res.getInt(1), res.getString(2), res.getString(3), res.getInt(4));
+                instance.setDate(instance.convertToGregorian(res.getString(5)));
+                resultList.add(instance);
+            }
+        } catch (Exception e){
+            ConnectionHandler.printError(e, "Loader.loadActivitiesOnAllFriends");
+            throw e;
+        } finally {
+            ConnectionHandler.closeAll(res, stm, con);
+        }
+        return resultList;
+    }
+    
     // Other loads
     
     public static ArrayList<String> loadAllInterestsNamesOnly() throws Exception{
         ArrayList<String> resultList = new ArrayList();
-        Activity instance;
         
         try{
             con = ConnectionHandler.openConnection();
-            // Executing query for all activities
+            // Executing query for all interests
             String stmString = "SELECT * FROM interest";
             
             /*

@@ -68,4 +68,17 @@ public class SecondaryNavigatorBeanTest {
         assertEquals("first instance in interestlist is wrong", "Teater og kultur", instance.getInterests().get(0));
     }
     
+    @Test
+    public void testShowFriendsForActivities(){
+        System.out.println("showFriendsForActivities");
+        instanceString = new SecondaryNavigatorBean().showFriendsForActivity();
+        assertEquals("Incorrect page navigation string", "friendsForActivityList", instanceString);
+    }
+    
+    @Test
+    public void testUserOwnDetails(){
+        System.out.println("userOwnDetails");
+        instanceString = new SecondaryNavigatorBean().userOwnDetails();
+        assertEquals("Incorrect page navigation string", "userOwnDetails", instanceString);
+    }
 }

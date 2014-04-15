@@ -86,6 +86,11 @@ public class UserBean implements java.io.Serializable{
         return "userFriendDeleted";
     }
     
+    public String updateUser() throws Exception{
+        Storer.storeNewUserDetails(singleUser);
+        return "userUpdate";
+    }
+    
     // Get-method used for rendering
     public boolean getIsRendered(){
         return singleUser.hasFriend(otherUser.getUserId());

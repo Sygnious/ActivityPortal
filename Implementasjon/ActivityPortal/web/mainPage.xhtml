@@ -14,7 +14,7 @@
                     <p>Hva vil du gjøre?</p>
                     <p><h:commandButton value = "Søke etter aktiviteter" action = "#{secNavB.activityIndex}"/></p>
                     <p><h:commandButton value = "Søke etter venner" action = "#{userB.showAllOtherUsers}"/></p>
-                    <p><h:commandButton value = "Endre mine opplysninger"/></p>
+                    <p><h:commandButton value = "Endre mine opplysninger" action = "#{secNavB.userOwnDetails}"/></p>
                 </h:form>
             </ui:define>
         </ui:composition>

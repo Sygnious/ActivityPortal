@@ -245,6 +245,35 @@ public class LoaderTest {
         assertEquals("total array size is not correct", 0, list.size());
     }
     
+    @Test
+    public void testLoadActivitiesOnAllFriends() throws Exception{
+        System.out.println("loadActivitiesOnAllFriends");
+        // Using user with ID 11, which has two friends with ID's 1 and 4.
+        // Those two participate in 7 distinct activities, with ID 7 being first
+        // One activity is unique for friend 1, and one for friend 4. 5 are shared.
+        ArrayList<Activity> list = Loader.loadActivitiesOnAllFriends(11);
+        assertEquals("total array size is not correct", 7, list.size());
+        // Checking contents of first
+        Activity instance = list.get(0);
+        assertEquals("Instance activityID is not correct", 7, instance.getActivityId());
+        assertEquals("Instance activityName is not correct", "Skitur på Gråkallen", instance.getName());
+    }
+    
+    @Test
+    public void testLoadActivitiesOnOneFriend() throws Exception{
+        System.out.println("loadActivitiesOnAllFriends");
+        
+        // Assume user has friend with ID = 4.
+        // Test will load all activities participated on by this friend
+        
+        ArrayList<Activity> list = Loader.loadActivitiesOnOneFriend(4);
+        assertEquals("total array size is not correct", 6, list.size());
+        // Checking contents of first
+        Activity instance = list.get(0);
+        assertEquals("Instance activityID is not correct", 7, instance.getActivityId());
+        assertEquals("Instance activityName is not correct", "Skitur på Gråkallen", instance.getName());
+    }
+    
     // Other loads
     
     @Test

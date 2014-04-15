@@ -63,7 +63,6 @@ public class ActivityBean implements java.io.Serializable {
         }
         actList = Loader.loadActivitiesOnSearch(keyWord);
         return currentPage = "activityList";
-        
     }
     
     // Methods for storing activities?

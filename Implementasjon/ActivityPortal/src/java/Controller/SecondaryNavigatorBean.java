@@ -50,6 +50,14 @@ public class SecondaryNavigatorBean implements Serializable {
         interests=Loader.loadAllInterestsNamesOnly();
         return "interestList";
     }
+    
+    public String showFriendsForActivity(){
+        return currentPage = "friendsForActivityList";
+    }
+    
+    public String userOwnDetails(){
+        return currentPage = "userOwnDetails";
+    }
 
     /**
      * @return the currentPage

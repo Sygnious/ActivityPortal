@@ -50,6 +50,12 @@
     
     <navigation-rule>
         <navigation-case>
+            <from-outcome>friendsForActivityList</from-outcome>
+            <to-view-id>/user/friendsForActivityList.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <navigation-case>
             <from-outcome>index</from-outcome>
             <to-view-id>/index.xhtml</to-view-id>
         </navigation-case>
@@ -103,6 +109,20 @@
         <navigation-case>
             <from-outcome>userOne</from-outcome>
             <to-view-id>/user/userOne.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <navigation-case>
+            <from-outcome>userOwnDetails</from-outcome>
+            <to-view-id>/user/userOwnDetails.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <navigation-case>
+            <from-outcome>userUpdate</from-outcome>
+            <to-view-id>/user/userUpdate.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
     

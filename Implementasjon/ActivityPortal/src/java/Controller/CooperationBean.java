@@ -82,8 +82,22 @@ public class CooperationBean implements Serializable {
         return "activityCancelled";
     }
     
+    // This method could have been handled by UserBean, since this one needs userId, 
+    // but all other loads of activities are handled by ActivityBean. 
+    // Instead of mixing UserBean into this kind of task, CoopeartionBean
+    // will be used instead, since it already involves using both Activity data
+    // and User data.
     
-
+    public String showActivitiesByFriend(Object obj) throws Exception{
+        if (obj instanceof User){
+            User friend = (User) obj;
+            actBean.setActList(Loader.loadActivitiesOnOneFriend(friend.getUserId()));
+            return "activityList";
+        }
+        return null;
+    }
+    
+    
     // Get and set-methods.
     // Likely useless for the application itself, if beans are injected
     // as the system starts up. But they are needed for the testclasses.

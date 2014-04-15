@@ -8,6 +8,7 @@ package Controller;
 
 import Database.*;
 import ProblemDomainModel.*;
+import java.util.ArrayList;
 import java.util.GregorianCalendar;
 
 import org.junit.After;
@@ -140,6 +141,34 @@ public class CooperationBeanTest {
         newSize = instanceUserB.getSingleUser().getPartActs().size();
         assertEquals("Incorrect page navigation string", "error", instanceString);
         assertEquals("Resulting size in participated activity list has not remained unchanged", 3, newSize);
+    }
+    
+    @Test
+    public void testShowActivitiesByFriend() throws Exception{
+        System.out.println("showActivitiesByFriends");
+        
+        
+        // Execute 1: Should not do anything if parameter ojbect is not of type User
+        instanceString = instance.showActivitiesByFriend("This String is a hoax and will not work");
+        
+        assertNull("instanceString was not null when using wrong object type", instanceString);
+        //assertEquals("Activity details changed even if object type was wrong for method", 0, instance.getActBean().getActList().size());
+        
+        // Execute 2: Changes when parameter object is of type User:
+        // Assuming current user is friend with user number 4, and wants
+        // to check his/her activities.
+        instanceString = instance.showActivitiesByFriend(new User(4, null, null, 100, null, null));
+        
+        // Checking return string
+        assertEquals("Incorrect page navigation string", "activityList", instanceString);
+        // loadActivitiesOnAllFriends already tested in LoaderTest, therefore only a few details should suffice
+        
+        ArrayList<Activity> list = instance.getActBean().getActList();
+        assertEquals("Total array size is not correct", 6, list.size());
+        // Checking contents of first
+        assertEquals("Instance activityID is not correct", 7, list.get(0).getActivityId());
+        assertEquals("Instance activityName is not correct", "Skitur på Gråkallen", list.get(0).getName());
+        
     }
     
     // Helping methods for tests that are using userID2

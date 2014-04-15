@@ -36,6 +36,7 @@ public class UserBeanTest {
     
     @AfterClass
     public static void tearDownClass() {
+        Initiator.resetDatabase(); // In case last test had made changes
     }
     
     @Before
@@ -201,6 +202,46 @@ public class UserBeanTest {
         newSize = instance.getSingleUser().getFriends().size();
         assertEquals("Incorrect page navigation string", "error", instanceString);
         assertEquals("Resulting size in friends activity list has not remained unchanged", 2, newSize);
+    }
+    
+    @Test 
+    public void testUpdateUser() throws Exception{
+        System.out.println("updateUser");
+        // Set up
+        
+        // User number 1 
+        // Original details:    1, Torbjørn Langland, 26, Moholt Allé 03-32 H0302, 7050 Trondheim
+        // New details:         1, TorbjørnYi LanglandYoung, 30, Moma, 7227 Gimse
+        // Note: Only Post number can be changed, post table never changes in database, and Gimse is connected to 7227
+        
+        // WARNING: Current implementatino has bug: Loader.LoadUserOnID will load empty if there are null-values connected to post_id
+        
+        // Set up
+        instanceUser = new User(1, "Torbjørn", "Langland", 26, "Moholt Allé 03-32 H0302", new Post(7050, "Trondheim"));
+        instance.setSingleUser(instanceUser);
+        
+        // Execute
+        instanceUser.setFirstName("TorbjørnYi");
+        instanceUser.setSurName("LanglandYoung");
+        instanceUser.setAge(30);
+        instanceUser.setAddress("Moma");
+        instanceUser.setPostAddress(new Post(7227, "Gimse"));
+        instanceString = instance.updateUser();
+        
+        // Loading user from database
+        instanceUser = Loader.loadSingleUserOnID(1);
+        
+        // Comparing
+        assertEquals("Incorrect page navigation string", "userUpdate", instanceString);
+        
+        assertEquals("firstName was not updated", "TorbjørnYi", instanceUser.getFirstName());
+        assertEquals("surName was not updated", "LanglandYoung", instanceUser.getSurName());
+        assertEquals("age was not updated", 30, instanceUser.getAge());
+        assertEquals("address was not updated", "Moma", instanceUser.getAddress());
+        assertEquals("postId was not updated", 7227, instanceUser.getPostAddress().getPostId());
+        assertEquals("postAddress was not updated", "Gimse", instanceUser.getPostAddress().getPostAddress());
+        
+        fail("Must implement and test a way for empty post-ids");
     }
     
     @Test
