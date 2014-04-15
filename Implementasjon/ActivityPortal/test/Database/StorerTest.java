@@ -200,11 +200,109 @@ public class StorerTest {
     
     @Test
     public void testStoreFriendOfUser() throws Exception{
-        fail("The method is not implemented for now");
+        System.out.println("storeFriendOfUser");
+        
+        // Using existing user with id 11, and existing friend with id 3.
+        // These two are not connected in friends.
+        User user = new User(11, null, null, 100, null, null); //Only ID-details matters
+        User friend = new User(3, null, null, 100, null, null);
+        Storer.storeFriendOfUser(user, friend);
+        
+        // Load instance from database in order to control that store was successful
+        try {
+            con = ConnectionHandler.openConnection();
+            
+            // Test divided into two: First testing length (expected 1 when existing, otherwise it will be 0).
+            // If trying to test contents, and there are none, res.getInt(1) and res.getInt(2) will cause exception
+            // To avoid this, the test will first control table length, and fail in assertEquals if storing has failed.
+            stm = con.prepareStatement("SELECT COUNT(*) FROM friends WHERE person_id = 11 AND friend_id = 3");
+            res = stm.executeQuery();
+            res.next();
+            int expectedNumberOfElements = res.getInt(1);
+            
+            assertEquals("Storage has gone wrong, count(*) is 0", 1, expectedNumberOfElements);
+            
+            res.close();
+            stm.close();
+            stm = con.prepareStatement("SELECT * FROM friends WHERE person_id = 11 AND friend_id = 3");
+            res = stm.executeQuery();
+            res.next();
+            
+            int expectedPersonID = res.getInt(1);
+            int expectedFriendID = res.getInt(2);
+            
+            assertEquals("Stored person_id is wrong", 11, expectedPersonID);
+            assertEquals("Stored friend_id is wrong", 3, expectedFriendID);
+            
+        } catch (Exception e){
+            ConnectionHandler.printError(e, "testStoreFriendOfUser()");
+            fail("Exception caused test to fail");
+        } finally {
+            ConnectionHandler.closeAll(res, stm, con);
+        }
+        
     }
     
     @Test
     public void testDeleteFriendOfUser() throws Exception{
-        fail("The method is not implemented for now");
+        System.out.println("deleteFriendOfUser");
+        
+        // Using existing user with id 11, and existing friend with id 6.
+        // These two will be connected in activity_person 
+        // by using standard SQL INSERT command.
+        // deleteUserFromActivity will then be called from Storer in order
+        // to delete instance from 
+        User user = new User(11, null, null, 100, null, null); //Only ID-details matters
+        User friend = new User(6, null, null, 100, null, null);
+        int count1; // Used for tracking
+        int count2;
+        int count3;
+        
+        // Load instance from database in order to control the control that store was successful
+        try {
+            con = ConnectionHandler.openConnection();
+            
+            // Set up:
+            stm = con.prepareStatement("INSERT INTO friends VALUES(11, 6)");
+            stm.execute();
+            stm.close();
+            
+            stm = con.prepareStatement("SELECT COUNT(*) FROM friends WHERE person_id =11 AND friend_id = 6");
+            res = stm.executeQuery();
+            res.next();
+            count1 = res.getInt(1);
+            res.close();
+            stm.close();
+            
+            //Execute
+            Storer.deleteFriendOfUser(user, friend);
+            
+            stm = con.prepareStatement("SELECT COUNT(*) FROM friends WHERE person_id =11 AND friend_id = 6");
+            res = stm.executeQuery();
+            res.next();
+            count2 = res.getInt(1);
+            res.close();
+            stm.close();
+            
+            //Additional execute, with non-existing data. No significant change should occur
+            Storer.deleteFriendOfUser(user, friend);
+            
+            stm = con.prepareStatement("SELECT COUNT(*) FROM friends WHERE person_id =11 AND friend_id = 6");
+            res = stm.executeQuery();
+            res.next();
+            count3 = res.getInt(1);
+            
+            assertEquals("Deletion does not perform correctly, count2 is not 0", 0, count2);
+            assertEquals("Deletion does not perform correctly (non-existing data), count3 is not 0", 0, count3);
+            assertEquals("Deletion does not perform correclty, count2 is not 1 less than count1", count2, count1-1);
+            
+            //Deleting non-existing entry is not tested, since no exception or change happens in database.
+        } catch (Exception e){
+            ConnectionHandler.printError(e, "testDeleteFriendOfUser()");
+            fail("Exception caused test to fail");
+        } finally {
+            ConnectionHandler.closeAll(res, stm, con);
+        }
+        
     }
 }

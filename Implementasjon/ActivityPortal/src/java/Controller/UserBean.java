@@ -67,6 +67,29 @@ public class UserBean implements java.io.Serializable{
         
         return null;
     }
+    
+    public String addFriend() throws Exception{
+        if (singleUser.hasFriend(otherUser.getUserId())){
+            return "error";
+        }
+        Storer.storeFriendOfUser(singleUser, otherUser);
+        singleUser = Loader.loadSingleUserOnID(singleUser.getUserId());
+        return "userFriendAdded";
+    }
+    
+    public String deleteFriend() throws Exception{
+        if (!singleUser.hasFriend(otherUser.getUserId())){
+            return "error";
+        }
+        Storer.deleteFriendOfUser(singleUser, otherUser);
+        singleUser = Loader.loadSingleUserOnID(singleUser.getUserId());
+        return "userFriendDeleted";
+    }
+    
+    // Get-method used for rendering
+    public boolean getIsRendered(){
+        return singleUser.hasFriend(otherUser.getUserId());
+    }
     // Get- and set-methods
     
     /**

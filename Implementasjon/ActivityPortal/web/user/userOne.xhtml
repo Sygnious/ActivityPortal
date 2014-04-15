@@ -7,7 +7,7 @@
         <title>Facelet Title</title>
     </h:head>
     <h:body>
-        <ui:composition template="templates/masterLayout.xhtml">
+        <ui:composition template="../templates/masterLayout.xhtml">
             <ui:define name="content">
                 <h:form>
                     <h:panelGrid columns ="2">
@@ -37,15 +37,16 @@
                             </h:panelGrid>
                         </h:panelGroup>
                         <h:panelGroup>
-                            <!--<p>
+                            <p>
                                 <h:commandButton value = "Legg til som venn"
-                                                rendered = "{!userB.isRendered}"
-                                                action = "{userB.signUserOnActivity()}"/>
-                                <h:commandButton value = "SLETT VENN"
-                                                rendered = "{userB.isRendered}"
-                                                action = "{userB.cancelUserFromActivity()}"
+                                                rendered = "#{!userB.isRendered}"
+                                                action = "#{userB.addFriend()}"
                                                 />
-                            </p>-->
+                                <h:commandButton value = "SLETT VENN"
+                                                rendered = "#{userB.isRendered}"
+                                                action = "#{userB.deleteFriend()}"
+                                                />
+                            </p>
                         </h:panelGroup>
                     </h:panelGrid>
                 </h:form>

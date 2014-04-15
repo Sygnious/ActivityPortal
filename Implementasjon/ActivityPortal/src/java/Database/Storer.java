@@ -69,7 +69,7 @@ public class Storer {
         }
     }
     
-    // Disconnect user to activity
+    // Disconnect user from activity
     public static void deleteUserFromActivity(User user, Activity activity) throws Exception{
         try{
             con = ConnectionHandler.openConnection();
@@ -87,11 +87,39 @@ public class Storer {
         }
     }
     
+    // Connect users as friends
     public static void storeFriendOfUser(User user, User friend) throws Exception{
-        
+        try{
+            con = ConnectionHandler.openConnection();
+            String statementString = "INSERT INTO friends VALUES(?,?)";
+            stm = con.prepareStatement(statementString);
+            stm.setInt(1, user.getUserId());
+            stm.setInt(2, friend.getUserId());
+            stm.execute();
+        } catch (Exception e){
+            ConnectionHandler.printError(e, "Storer.storeFriendOfUser");
+            throw e;
+        } finally {
+            ConnectionHandler.closeStatement(stm);
+            ConnectionHandler.closeConnection(con);
+        }
     }
     
+    // Disconnect users as friends
     public static void deleteFriendOfUser(User user, User friend) throws Exception{
-        
+        try{
+            con = ConnectionHandler.openConnection();
+            String statementString = "DELETE FROM friends WHERE person_id = ? AND friend_id =?";
+            stm = con.prepareStatement(statementString);
+            stm.setInt(1, user.getUserId());
+            stm.setInt(2, friend.getUserId());
+            stm.execute();
+        } catch (Exception e){
+            ConnectionHandler.printError(e, "Storer.deleteFriendOfUser");
+            throw e;
+        } finally {
+            ConnectionHandler.closeStatement(stm);
+            ConnectionHandler.closeConnection(con);
+        }
     }
 }

@@ -124,8 +124,8 @@ public class User implements java.io.Serializable{
        return null;
     }
     
-    public boolean hasFriend(int activityId){
-        return (findFriendById(activityId) != null);
+    public boolean hasFriend(int userId){
+        return (findFriendById(userId) != null);
     }
     
     public void removeFriend(User hostile){

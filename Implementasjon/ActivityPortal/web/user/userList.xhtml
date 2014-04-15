@@ -7,7 +7,7 @@
         <title>Facelet Title</title>
     </h:head>
     <h:body>
-        <ui:composition template="templates/masterLayout.xhtml">
+        <ui:composition template="../templates/masterLayout.xhtml">
             <ui:define name="content">
                 <h:form>
                     <h:panelGrid columns ="2">
@@ -35,7 +35,7 @@
                                     #{friendL.firstName}
                                 </h:column>
                                 <h:column>
-                                    <h:commandLink value="Les mer" action="#{userB.selectUser(frinedL)}"/>
+                                    <h:commandLink value="Les mer" action="#{userB.selectUser(friendL)}"/>
                                 </h:column>
                             </h:dataTable>
                         </h:panelGroup>

@@ -26,7 +26,6 @@ public class CooperationBean implements Serializable {
 
     @Inject private ActivityBean actBean;
     @Inject private UserBean userBean;
-    boolean isRendered;
     
     /**
      * Creates a new instance of CooperationBean
@@ -41,7 +40,7 @@ public class CooperationBean implements Serializable {
     
     // The get-method used for the rendering
     public boolean getIsRendered(){
-        return isRendered = findParticipationOnUserID();
+        return findParticipationOnUserID();
     }
     
     // Methods for signing User to or from activities.

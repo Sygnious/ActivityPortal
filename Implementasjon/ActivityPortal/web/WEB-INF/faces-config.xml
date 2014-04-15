@@ -80,15 +80,29 @@
     
     <navigation-rule>
         <navigation-case>
+            <from-outcome>userFriendAdded</from-outcome>
+            <to-view-id>/user/userFriendAdded.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <navigation-case>
+            <from-outcome>userFriendDeleted</from-outcome>
+            <to-view-id>/user/userFriendDeleted.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <navigation-case>
             <from-outcome>userList</from-outcome>
-            <to-view-id>/userList.xhtml</to-view-id>
+            <to-view-id>/user/userList.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
     
     <navigation-rule>
         <navigation-case>
             <from-outcome>userOne</from-outcome>
-            <to-view-id>/userOne.xhtml</to-view-id>
+            <to-view-id>/user/userOne.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
     
