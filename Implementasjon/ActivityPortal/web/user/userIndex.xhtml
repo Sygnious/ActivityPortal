@@ -7,17 +7,17 @@
         <title>Facelet Title</title>
     </h:head>
     <h:body>
-        <ui:composition template="templates/masterLayout.xhtml">
+        <h:body>
+        <ui:composition template="../templates/masterLayout.xhtml">
             <ui:define name="content">
                 <h:form>
-                    <p>Velkommen tilbake, #{userB.singleUser.firstName}.</p>
-                    <p>Hva vil du gjøre?</p>
-                    <p><h:commandButton value = "Søke etter aktiviteter" action = "#{secNavB.activityIndex}"/></p>
-                    <p><h:commandButton value = "Søke etter venner" action = "#{secNavB.userIndex}"/></p>
-                    <p><h:commandButton value = "Endre mine opplysninger" action = "#{secNavB.userOwnDetails}"/></p>
+                    <p>Hvordan vil du søke etter venner?</p>
+                    <h:commandButton value ="Vis alle brukere" action="#{userB.showAllOtherUsers}"/>
+                    <h:commandButton value ="Skriv inn navn" action="#{secNavB.userSearch}"/>
                 </h:form>
             </ui:define>
         </ui:composition>
+    </h:body>
     </h:body>
 </html>
 

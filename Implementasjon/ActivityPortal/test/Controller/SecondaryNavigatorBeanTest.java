@@ -76,9 +76,23 @@ public class SecondaryNavigatorBeanTest {
     }
     
     @Test
+    public void testUserIndex(){
+        System.out.println("userIndex");
+        instanceString = new SecondaryNavigatorBean().userIndex();
+        assertEquals("Incorrect page navigation string", "userIndex", instanceString);
+    }
+    
+    @Test
     public void testUserOwnDetails(){
         System.out.println("userOwnDetails");
         instanceString = new SecondaryNavigatorBean().userOwnDetails();
         assertEquals("Incorrect page navigation string", "userOwnDetails", instanceString);
+    }
+    
+    @Test
+    public void testUserSearch(){
+        System.out.println("userSearch");
+        instanceString = new SecondaryNavigatorBean().userSearch();
+        assertEquals("Incorrect page navigation string", "userSearch", instanceString);
     }
 }

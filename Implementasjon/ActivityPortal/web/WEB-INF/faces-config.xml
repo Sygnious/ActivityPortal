@@ -100,6 +100,13 @@
     
     <navigation-rule>
         <navigation-case>
+            <from-outcome>userIndex</from-outcome>
+            <to-view-id>/user/userIndex.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <navigation-rule>
+        <navigation-case>
             <from-outcome>userList</from-outcome>
             <to-view-id>/user/userList.xhtml</to-view-id>
         </navigation-case>

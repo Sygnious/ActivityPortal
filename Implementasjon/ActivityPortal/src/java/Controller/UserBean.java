@@ -26,6 +26,7 @@ public class UserBean implements java.io.Serializable{
     private User otherUser = new User();
     private ArrayList<User> userList = new ArrayList();
     private String currentPage;
+    private String keyWord;
     
     public UserBean(){
         // Compulsory Constructor
@@ -57,6 +58,13 @@ public class UserBean implements java.io.Serializable{
         return currentPage = "userList";
     }    
     
+    public String showUsersBySearch() throws Exception{
+        if (keyWord==null || keyWord.trim().equals("")){
+            return currentPage = "userSearch";
+        }
+        userList = Loader.loadUsersOnSearchExceptOwn(singleUser.getUserId(), keyWord);
+        return "userList";
+    }
     
     public String selectUser(Object obj) throws Exception{
         if (obj instanceof User){
@@ -151,5 +159,19 @@ public class UserBean implements java.io.Serializable{
      */
     public void setOtherUser(User otherUser) {
         this.otherUser = otherUser;
+    }
+
+    /**
+     * @return the keyWord
+     */
+    public String getKeyWord() {
+        return keyWord;
+    }
+
+    /**
+     * @param keyWord the keyWord to set
+     */
+    public void setKeyWord(String keyWord) {
+        this.keyWord = keyWord;
     }
 }

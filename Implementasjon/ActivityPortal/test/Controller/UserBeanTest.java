@@ -111,6 +111,38 @@ public class UserBeanTest {
     }
     
     @Test
+    public void testShowUsersBySearch() throws Exception{
+        System.out.println("showUsersBySearch");
+        // Set up
+        // User ID 1, only required data for interacting with Loader
+        // and database.
+        instance.setSingleUser(new User(1, null, null, 100, null, null));
+        // First test by null
+        instance.setKeyWord(null);
+        instanceString = instance.showUsersBySearch();
+        assertEquals("return was not currentPage when input was null", "userSearch", instanceString);
+
+        // Second test by empty string
+        instance.setKeyWord("");
+        instanceString = instance.showUsersBySearch();
+        assertEquals("return was not currentPage when input was empty", "userSearch", instanceString);
+        
+        // This test by "Teater and Kultur". Note that no other keywords are tested,
+        // testLoadActivitiesOnSearch1-3 in LoaderTest cover these;
+        //Execute
+        instance.setKeyWord("Johansen");
+        instanceString = instance.showUsersBySearch();
+        instanceUserList = instance.getUserList();
+        instanceUser = instanceUserList.get(0);
+        
+          // Checking return string
+        assertEquals("Incorrect page navigation string", "userList", instanceString);
+        // testLoadUsersOnSearchExceptOwn already tested in LoaderTest, therefore only a few details should suffice
+        assertEquals("Loaded user list size is wrong", 2, instanceUserList.size());
+        assertEquals("Loaded user firstName is wrong", "Tove", instanceUserList.get(0).getFirstName());
+    }
+    
+    @Test
     public void testSelectUser() throws Exception{
         System.out.println("selectUser");
         // Set up

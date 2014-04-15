@@ -73,6 +73,32 @@ public class Loader {
         return result;
     }
     
+    public static ArrayList<User> loadUsersOnSearchExceptOwn(int userID, String keyWord) throws Exception{
+        ArrayList<User> resultList = new ArrayList();
+        try{
+            con = ConnectionHandler.openConnection();
+            //Executing query
+            String stmString = "SELECT * FROM person WHERE person_id <> ? AND (first_name LIKE ? OR last_name LIKE ?)"; //TODO: Improve SQL sentence so that full name will work out
+            stm = con.prepareStatement(stmString);
+            stm.setInt(1, userID);
+            stm.setString(2, "%"+keyWord+"%");
+            stm.setString(3, "%"+keyWord+"%");
+            
+            res = stm.executeQuery();
+            while(res.next()){
+                resultList.add(new User(res.getInt(1), res.getString(2), res.getString(3), res.getInt(4), res.getString(5), null));
+            }
+        } catch (Exception e){
+            ConnectionHandler.printError(e, "Loader.loadUsersOnSearchExceptOwn");
+            throw e;
+        } finally {
+            ConnectionHandler.closeAll(res, stm, con);
+        }
+        return resultList;
+    }
+    
+    
+    
     public static ArrayList<User> loadAllUserFriends(int userID) throws Exception{ // TODO: Implement
         ArrayList<User> result = new ArrayList();
         try{
@@ -292,7 +318,6 @@ public class Loader {
     public static ArrayList<Activity> loadActivitiesOnSearch(String keyWord) throws Exception{
         ArrayList<Activity> resultList = new ArrayList();
         Activity instance;
-        String input;
         
         try{
             con = ConnectionHandler.openConnection();
@@ -302,11 +327,10 @@ public class Loader {
             /*
             * Code section for implementing today's date.
             */
-            input = "%"+keyWord+"%";
             stm = con.prepareStatement(stmString);
             stm.setString(1, demoDate);
-            stm.setString(2, input);
-            stm.setString(3, input);
+            stm.setString(2, "%"+keyWord+"%");
+            stm.setString(3, "%"+keyWord+"%");
             res = stm.executeQuery();
             
             

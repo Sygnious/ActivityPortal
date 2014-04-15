@@ -55,10 +55,18 @@ public class SecondaryNavigatorBean implements Serializable {
         return currentPage = "friendsForActivityList";
     }
     
+    public String userIndex(){
+        return currentPage = "userIndex";
+    }
+    
     public String userOwnDetails(){
         return currentPage = "userOwnDetails";
     }
 
+    public String userSearch(){
+        return currentPage = "userSearch";
+    }
+    
     /**
      * @return the currentPage
      */

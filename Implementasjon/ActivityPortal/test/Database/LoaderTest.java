@@ -63,6 +63,91 @@ public class LoaderTest {
         assertEquals("First instance surName is not correct", "Anonymious", instance.get(0).getSurName());
     }
     
+    // loadUsersOnSearch is split into 5: One for first name, one for last name, one for both, 
+    // one with no match and one proving that own name cannot be loaded
+    @Test
+    public void testLoadUsersOnSearchExceptOwn1() throws Exception{
+        System.out.println("loadUsersOnSearchExceptOwn1: Search hit on first name");
+        // Set up
+        ArrayList<User> list;
+        User instance;
+        list = Loader.loadUsersOnSearchExceptOwn(1, "Tove");
+        // Checking size of array. 
+        assertEquals("total array size is not correct", 2, list.size());
+        // Checking contents of first
+        instance = list.get(0);
+        
+        assertEquals("userId is not correct", 2, instance.getUserId());
+        assertEquals("firstName is not correct", "Tove", instance.getFirstName());
+        assertEquals("surName is not correct", "Johansen", instance.getSurName());
+    }
+    
+    @Test
+    public void testLoadUsersOnSearchExceptOwn2() throws Exception{
+        System.out.println("loadUsersOnSearchExceptOwn2: Search hit on last name");
+        // Set up
+        ArrayList<User> list;
+        User instance;
+        list = Loader.loadUsersOnSearchExceptOwn(1, "Johansen");
+        // Checking size of array. 
+        assertEquals("total array size is not correct", 2, list.size());
+        // Checking contents of first
+        instance = list.get(0);
+        
+        assertEquals("userId is not correct", 2, instance.getUserId());
+        assertEquals("firstName is not correct", "Tove", instance.getFirstName());
+        assertEquals("surName is not correct", "Johansen", instance.getSurName());
+    }
+    
+    @Test
+    public void testLoadUsersOnSearchExceptOwn3() throws Exception{
+        System.out.println("loadUsersOnSearchExceptOwn3: Search hit on full name");
+        // Set up
+        ArrayList<User> list;
+        User instance;
+        list = Loader.loadUsersOnSearchExceptOwn(1, "Tove Johansen");
+        // Checking size of array. 
+        assertEquals("total array size is not correct", 1, list.size());
+        // Checking contents of first
+        instance = list.get(0);
+        
+        assertEquals("userId is not correct", 2, instance.getUserId());
+        assertEquals("firstName is not correct", "Tove", instance.getFirstName());
+        assertEquals("surName is not correct", "Johansen", instance.getSurName());
+    }
+    
+    @Test
+    public void testLoadUsersOnSearchExceptOwn4() throws Exception{
+        System.out.println("loadUsersOnSearchExceptOwn4: Search hit nothing on input");
+        // Set up
+        ArrayList<User> list;
+        User instance;
+        list = Loader.loadUsersOnSearchExceptOwn(1, "This is a hoax");
+        // Checking size of array. 
+        assertEquals("total array size is not correct", 0, list.size());
+    }
+    
+    @Test
+    public void testLoadUsersOnSearchExceptOwn5() throws Exception{
+        System.out.println("loadUsersOnSearchExceptOwn5: Search hit nothing on input");
+        // Set up
+        ArrayList<User> list;
+        User instance;
+        list = Loader.loadUsersOnSearchExceptOwn(1, "Langland"); //ID = 1 is user Langland
+        // Checking size of array. 
+        assertEquals("total array size is not correct", 0, list.size());
+        
+        // Extra test to confirm that Langland can be searched by others
+        list = Loader.loadUsersOnSearchExceptOwn(2, "Langland"); //ID = 2 is NOT user Langland
+        // Checking size of array. 
+        assertEquals("total array size is not correct", 1, list.size());
+        
+        // Checking details
+        instance = list.get(0);
+        assertEquals("firstName is not correct", "Torbjørn", instance.getFirstName());
+        assertEquals("surName is not correct", "Langland", instance.getSurName());
+    }
+    
     @Test
     public void testLoadAllUserFriends() throws Exception{
         System.out.println("loadAllUserFriends");

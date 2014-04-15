@@ -3,8 +3,7 @@ Arbeidslogg:
 Antatt tapt tid: 4-5 timers programmering.
 2-3 EiT-dager brukt, + ca 3 timer ekstra for å lære JUnit
 
-Sum: ?
-
+Pre 19.03.2014 3HR - Lære JUnit
 19.03.2014 2HR - Ferdig Implementert database med testdata 
 19.03.2014 2HR - Implementert problemdomeneklasser
 24.03.2014 3HR - Laget tomme klasser for kontrollere og databasehandling. Ferdig implementert ConnectionHandler. Påbegynt Initiator og påfølgende test
@@ -21,10 +20,10 @@ Sum: ?
 13.04.2014: 0.5 HR - Fant ut av formatteringsfeilen. CSS-filen er nå i bruk på alle sider
 			4 HR: Implementert Storer: Endring av bruker, legge til aktivitet til bruker, fjerne aktivitet fra bruker
 14.04.2014: 6.25 HR - Påmelding og avmelding av aktiviteter implementert. Utlisting av folk. Utlisting av tillagte venner.
-15.04.2014: 16:00-18:00, 19:00-21:15  - Legge til og slette venner er lagt til. Søk etter bestemt venns aktiviteter lagt til. Endre brukerdetaljer er lagt til.
-			
+15.04.2014: 6 HR  - Legge til og slette venner er lagt til. Søk etter bestemt venns aktiviteter lagt til. Endre brukerdetaljer er lagt til. Søke venner etter søkeord er lagt til
 
-TOTALT SÅ LANGT: 
+
+TOTALT SÅ LANGT: 49.25 HR
 
 TODO:
 2nd-priority står på ikke høyeste prioritet.
