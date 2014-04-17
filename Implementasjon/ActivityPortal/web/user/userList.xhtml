@@ -12,8 +12,8 @@
                 <h:form>
                     <h:panelGrid columns ="2">
                         <h:panelGroup>
-                            <p>Velg en person du vil se nærmere på:</p>
-                            <h:dataTable value="#{userB.userList}" var="usL">
+                            <p class="content-text-bold">Velg en person du vil se nærmere på:</p>
+                            <h:dataTable value="#{userB.userList}" width="500" var="usL" class="content-text-details">
                                 <h:column>
                                     #{usL.surName}
                                 </h:column>
@@ -25,9 +25,9 @@
                                 </h:column>
                             </h:dataTable>
                         </h:panelGroup>
-                        <h:panelGroup>
-                            <p>Venner du allerede har lagt til:</p>
-                            <h:dataTable value="#{userB.singleUser.friends}" var="friendL">
+                        <h:panelGroup style="vertical-align: top">
+                            <p class="content-text-bold">Venner du allerede har lagt til:</p>
+                            <h:dataTable value="#{userB.singleUser.friends}" width="500" var="friendL" class="content-text-details">
                                 <h:column>
                                     #{friendL.surName}
                                 </h:column>
@@ -40,6 +40,7 @@
                             </h:dataTable>
                         </h:panelGroup>
                     </h:panelGrid>
+                    <h:commandButton image="/resources/images/commandButtons/Tilbake.png" action = "#{secNavB.userIndex}"/>
                 </h:form>
             </ui:define>
         </ui:composition>

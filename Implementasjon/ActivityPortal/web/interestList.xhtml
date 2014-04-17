@@ -10,7 +10,7 @@
         <ui:composition template="templates/masterLayout.xhtml">
             <ui:define name="content">
                 <h:form>
-                    <p>Velg ønsket interesse for å få liste over tilhørende aktiviteter:</p>
+                    <p><b>Velg ønsket interesse for å få liste over tilhørende aktiviteter:</b></p>
                     <h:dataTable value="#{secNavB.interests}" width="400" var="inte">
                         <h:column>
                             #{inte}
@@ -19,6 +19,7 @@
                             <h:commandLink value="Velg" action="#{actB.showActivitiesByInterest(inte)}"/>
                         </h:column>
                     </h:dataTable>
+                    <h:commandButton image="/resources/images/commandButtons/Tilbake.png" action = "#{secNavB.activityIndex}"/>
                 </h:form>
             </ui:define>
         </ui:composition>

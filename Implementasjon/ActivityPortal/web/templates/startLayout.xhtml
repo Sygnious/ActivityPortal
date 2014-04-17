@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title><ui:insert name="windowsTitle"/></title>
+        <h:outputStylesheet library ="css" name="style.css"/>
+    </h:head>
+    <h:body>
+        
+        <div id="topBar">
+            <ui:insert name="topBar">
+                <ui:include src="/templates/topBar.xhtml"/>
+            </ui:insert>
+        </div>
+        
+        <div id="sidebarLeft">
+            <ui:insert name="sidebarLeft">
+                <ui:include src="/templates/sidebarLeftEmpty.xhtml"/>
+            </ui:insert>
+        </div>
+        
+        <div id="content">
+            <ui:insert name="content"/>
+        </div>
+    </h:body>
+</html>
+

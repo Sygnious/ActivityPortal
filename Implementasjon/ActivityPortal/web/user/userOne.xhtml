@@ -10,7 +10,7 @@
         <ui:composition template="../templates/masterLayout.xhtml">
             <ui:define name="content">
                 <h:form>
-                    <h:panelGrid columns ="2">
+                    <h:panelGrid columns ="2"  class="content-text-details">
                         <h:panelGroup>
                             <h:panelGrid columns ="2">
                                 <h:panelGroup>Fornavn: </h:panelGroup>
@@ -22,7 +22,7 @@
                                 <h:panelGroup>Adresse: </h:panelGroup>
                                 <h:panelGroup>#{userB.otherUser.address}</h:panelGroup>
                                 
-                                <h:panelGroup>PostAdresse: </h:panelGroup>
+                                <h:panelGroup>Postadresse: </h:panelGroup>
                                 <h:panelGroup>#{userB.otherUser.postAddress.postId}, #{userB.otherUser.postAddress.postAddress}</h:panelGroup>
                                 
                                 <h:panelGroup>Interesser: </h:panelGroup>
@@ -38,17 +38,18 @@
                         </h:panelGroup>
                         <h:panelGroup>
                             <p>
-                                <h:commandButton value = "Legg til som venn"
+                                <h:commandButton image="/resources/images/commandButtons/UserLeggTil.png"
                                                 rendered = "#{!userB.isRendered}"
                                                 action = "#{userB.addFriend()}"
                                                 />
-                                <h:commandButton value = "SLETT VENN"
+                                <h:commandButton image="/resources/images/commandButtons/UserFjern.png"
                                                 rendered = "#{userB.isRendered}"
                                                 action = "#{userB.deleteFriend()}"
                                                 />
                             </p>
                         </h:panelGroup>
                     </h:panelGrid>
+                    <h:commandButton image="/resources/images/commandButtons/Tilbake.png" action = "#{secNavB.userIndex}"/>
                 </h:form>
             </ui:define>
         </ui:composition>

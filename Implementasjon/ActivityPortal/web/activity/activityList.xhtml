@@ -10,8 +10,8 @@
         <ui:composition template="../templates/masterLayout.xhtml">
             <ui:define name="content">
                 <h:form>
-                    <p>Velg en aktivitet du vil se nærmere på:</p>
-                    <h:dataTable value="#{actB.actList}" width="400" var="actL">
+                    <p class="content-text-bold">Velg en aktivitet du vil se nærmere på:</p>
+                    <h:dataTable value="#{actB.actList}" width="700" var="actL" class="content-text-details">
                         <h:column>
                             #{actL.name}
                         </h:column>
@@ -22,6 +22,7 @@
                             <h:commandLink value="Les mer" action="#{actB.showActivityDetails(actL)}"/>
                         </h:column>
                     </h:dataTable>
+                    <h:commandButton image="/resources/images/commandButtons/Tilbake.png" action = "#{secNavB.activityIndex}"/>
                 </h:form>
             </ui:define>
         </ui:composition>

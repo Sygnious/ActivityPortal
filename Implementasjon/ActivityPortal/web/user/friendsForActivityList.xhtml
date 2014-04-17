@@ -10,8 +10,8 @@
         <ui:composition template="../templates/masterLayout.xhtml">
             <ui:define name="content">
                 <h:form>
-                    <p>Velg en person for å få listet ut aktivitetene:</p>
-                    <h:dataTable value="#{userB.singleUser.friends}" var="friendL">
+                    <p class="content-text-bold">Velg en person for å få listet ut aktivitetene:</p>
+                    <h:dataTable value="#{userB.singleUser.friends}" var="friendL" class="content-text-detail">
                         <h:column>
                             #{friendL.surName}
                         </h:column>
@@ -22,6 +22,7 @@
                             <h:commandLink value="Les mer" action="#{coopB.showActivitiesByFriend(friendL)}"/>
                         </h:column>
                     </h:dataTable>
+                    <h:commandButton image="/resources/images/commandButtons/Tilbake.png" action = "#{secNavB.activityIndex}"/>
                 </h:form>
             </ui:define>
         </ui:composition>

@@ -10,7 +10,8 @@
         <ui:composition template="../templates/masterLayout.xhtml">
             <ui:define name="content">
                 <h:form>
-                    <p>Du er nå påmeldt aktiviteten</p>
+                    <p class="content-text">Du er nå påmeldt aktiviteten</p>
+                    <h:commandButton image="/resources/images/commandButtons/Tilbake.png" action = "#{secNavB.activityIndex}"/>
                 </h:form>
             </ui:define>
         </ui:composition>

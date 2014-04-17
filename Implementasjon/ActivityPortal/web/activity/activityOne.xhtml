@@ -30,10 +30,10 @@
                         </h:panelGroup>
                         <h:panelGroup>
                             <p>
-                                <h:commandButton value = "Meld på"
+                                <h:commandButton image="/resources/images/commandButtons/ActivityMeldPaa.png" 
                                                 rendered = "#{!coopB.isRendered}"
                                                 action = "#{coopB.signUserOnActivity()}"/>
-                                <h:commandButton value = "Meld av"
+                                <h:commandButton image="/resources/images/commandButtons/ActivityMeldAv.png" 
                                                 rendered = "#{coopB.isRendered}"
                                                 action = "#{coopB.cancelUserFromActivity()}"
                                                 />
@@ -49,6 +49,7 @@
                             </h:dataTable>
                         </h:panelGroup>
                     </h:panelGrid>
+                    <h:commandButton image="/resources/images/commandButtons/Tilbake.png" action = "#{secNavB.activityIndex}"/>
                 </h:form>
             </ui:define>
         </ui:composition>

@@ -11,9 +11,10 @@
         <ui:composition template="../templates/masterLayout.xhtml">
             <ui:define name="content">
                 <h:form>
-                    <p>Hvordan vil du søke etter venner?</p>
-                    <h:commandButton value ="Vis alle brukere" action="#{userB.showAllOtherUsers}"/>
-                    <h:commandButton value ="Skriv inn navn" action="#{secNavB.userSearch}"/>
+                    <p class="content-text-bold">Hvordan vil du søke etter venner?</p>
+                    <p><h:commandButton image="/resources/images/commandButtons/UserAlle.png" action="#{userB.showAllOtherUsers}"/></p>
+                    <p><h:commandButton image="/resources/images/commandButtons/UserSoek.png" action="#{secNavB.userSearch}"/></p>
+                    <h:commandButton image="/resources/images/commandButtons/Tilbake.png" action = "#{userB.logIn}"/>
                 </h:form>
             </ui:define>
         </ui:composition>

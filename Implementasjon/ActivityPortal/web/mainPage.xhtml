@@ -10,11 +10,12 @@
         <ui:composition template="templates/masterLayout.xhtml">
             <ui:define name="content">
                 <h:form>
-                    <p>Velkommen tilbake, #{userB.singleUser.firstName}.</p>
-                    <p>Hva vil du gjøre?</p>
-                    <p><h:commandButton value = "Søke etter aktiviteter" action = "#{secNavB.activityIndex}"/></p>
-                    <p><h:commandButton value = "Søke etter venner" action = "#{secNavB.userIndex}"/></p>
-                    <p><h:commandButton value = "Endre mine opplysninger" action = "#{secNavB.userOwnDetails}"/></p>
+                    <p class="content-text">Velkommen tilbake, #{userB.singleUser.firstName}.</p>
+                    <p class="content-text-bold">Velg mellom å søke blant aktiviterer, blant venner <br/>eller endre dine egne personopplysninger</p>
+                    
+                        <p><h:commandButton image="/resources/images/commandButtons/IndexAktiviteter.png" action = "#{secNavB.activityIndex}"/></p>
+                        <p><h:commandButton image = "/resources/images/commandButtons/IndexVenner.png" action = "#{secNavB.userIndex}"/></p>
+                        <p><h:commandButton image = "/resources/images/commandButtons/IndexOpplysninger.png" action = "#{secNavB.userOwnDetails}"/></p>
                 </h:form>
             </ui:define>
         </ui:composition>

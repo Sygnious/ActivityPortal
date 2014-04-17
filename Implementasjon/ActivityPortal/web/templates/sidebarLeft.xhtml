@@ -9,7 +9,10 @@
     <h:body>
         <ui:composition>
             <h:form>
-                Aktiviteter du er påmeldt:<br/>
+                <h:commandButton image="/resources/images/commandButtons/Forside.png" action = "#{userB.logIn}"/>
+                <h:commandButton image = "/resources/images/commandButtons/LoggUt.png" action = "#{userB.logOut}"/>
+                <h:commandButton image = "/resources/images/commandButtons/RestartDemo.png" action = "#{userB.reset}"/>
+                <p style="font-weight: bold">Aktiviteter du er påmeldt:</p>
                 <h:dataTable value="#{userB.singleUser.partActs}" width="400" var="pacts">
                     <h:column>
                         #{pacts.name}

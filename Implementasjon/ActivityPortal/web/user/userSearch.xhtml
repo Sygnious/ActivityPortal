@@ -10,11 +10,14 @@
         <ui:composition template="../templates/masterLayout.xhtml">
             <ui:define name="content">
                 <h:form>
-                    <p>Skriv inn navn.</p>
-                    <p>Fornavn og/eller etternavn.</p>
-                    <p>Trykk så på "Søk"</p>
-                    <p><h:inputText value="#{userB.keyWord}"/></p>
-                    <p><h:commandButton value="Søk" action="#{userB.showUsersBySearch}"/></p>
+                    <div class="content-text-details">
+                        <p>Skriv inn navn.</p>
+                        <p>Fornavn og/eller etternavn.</p>
+                        <p>Trykk så på "Søk"</p>
+                        <p><h:inputText value="#{userB.keyWord}"/></p>
+                        <p><h:commandButton image="/resources/images/commandButtons/SoekSmall.png" action="#{userB.showUsersBySearch}"/></p>
+                        <h:commandButton image="/resources/images/commandButtons/Tilbake.png" action = "#{secNavB.userIndex}"/>
+                    </div>
                 </h:form>
             </ui:define>
         </ui:composition>

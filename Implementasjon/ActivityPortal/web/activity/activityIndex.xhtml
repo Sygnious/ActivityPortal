@@ -10,12 +10,14 @@
         <ui:composition template="../templates/masterLayout.xhtml">
             <ui:define name="content">
                 <h:form>
-                    <p>Hvordan vil du søke etter aktiviteter?</p>
-                    <p><h:commandButton value = "Finn alle aktiviteter" action = "#{actB.showAllActivities}"/></p>
-                    <p><h:commandButton value = "Finn etter interesser" action = "#{secNavB.interestList}"/></p>
+                    
+                    <p class="content-text-bold">Hvordan vil du søke etter aktiviteter?</p>
+                    <p><h:commandButton image="/resources/images/commandButtons/ActivityAlle.png"  action = "#{actB.showAllActivities}"/></p>
+                    <p><h:commandButton image="/resources/images/commandButtons/ActivityInteresser.png" action = "#{secNavB.interestList}"/></p>
                     <!--<p><h:commandButton value = "Finn etter område" /></p>-->
-                    <p><h:commandButton value = "Finn etter venner som deltar" action = "#{secNavB.showFriendsForActivity}"/></p>
-                    <p><h:commandButton value = "Finn etter søkeord" action = "#{secNavB.activitySearch}"/></p>
+                    <p><h:commandButton image="/resources/images/commandButtons/ActivityVenner.png" action = "#{secNavB.showFriendsForActivity}"/></p>
+                    <p><h:commandButton image="/resources/images/commandButtons/ActivitySoek.png" action = "#{secNavB.activitySearch}"/></p>
+                    <h:commandButton image="/resources/images/commandButtons/Tilbake.png" action = "#{userB.logIn}"/>
                 </h:form>
             </ui:define>
         </ui:composition>
