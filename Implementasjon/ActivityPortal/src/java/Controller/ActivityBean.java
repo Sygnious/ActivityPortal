@@ -65,6 +65,10 @@ public class ActivityBean implements java.io.Serializable {
         return currentPage = "activityList";
     }
     
+    public boolean getIsRendered(){
+        return (singleAct.getImageName()==null || singleAct.getImageName().trim().equals(""));
+    }
+    
     // Methods for storing activities?
     
     /*

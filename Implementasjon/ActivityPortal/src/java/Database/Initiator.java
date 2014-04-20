@@ -45,11 +45,14 @@ public class Initiator {
         }
     }
     
-    /*
-    // Method for removing without rebuilding database.
-    public void wipeOut(){
-        
-    }*/
+    // Calls resetDatabase, but with changed SQL-file specifically for the demo
+    // Changes back to old for consistency in the tests
+    public static void resetDatabaseDemo(){
+        absoluteFilePath = "/Users/Sygnious/Documents/Skole/4DAT/EksperterITeam/Systemutvikling/Implementasjon/ActivityPortal/src/java/Database/SQLFiles/SQLCommandsDemoRaw.sql";
+        resetDatabase();
+        absoluteFilePath = "/Users/Sygnious/Documents/Skole/4DAT/EksperterITeam/Systemutvikling/Implementasjon/ActivityPortal/src/java/Database/SQLFiles/SQLCommandsRaw.sql";
+    }
+    
     
     // Sub-methods, in order to make try-catch block short in top-method
     private static void ExecuteReset(ArrayList<String> commands) throws Exception{

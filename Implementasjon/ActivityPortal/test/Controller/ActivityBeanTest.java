@@ -139,4 +139,15 @@ public class ActivityBeanTest {
         assertEquals("Loaded activityList size is wrong", 2, instanceActList.size());
     }
     
+    public void testGetIsRendered(){
+        System.out.println("getIsRendered");
+        instance.setSingleAct(instanceAct = new Activity(1, null, null, 1));
+        instanceAct.setImageName(null);
+        assertEquals("Returned true when imageName was null", false, instance.getIsRendered());
+        instanceAct.setImageName("");
+        assertEquals("Returned true when imageName was empty", false, instance.getIsRendered());
+        instanceAct.setImageName(null);
+        assertEquals("Returned false when imageName was null", true, instance.getIsRendered());
+    }
+    
 }

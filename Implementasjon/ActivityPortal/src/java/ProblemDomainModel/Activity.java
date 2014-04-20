@@ -23,6 +23,7 @@ public class Activity implements java.io.Serializable {
     private String description;
     private GregorianCalendar date; //Concider usefulness, maybe database alone should filter
     private int townId;
+    private String imageName;
     private ArrayList<String> interests; // This activity covers selected interests
     private ArrayList<User> participants; 
     
@@ -32,9 +33,9 @@ public class Activity implements java.io.Serializable {
         this.name = name;
         this.description = description;
         this.townId = townId;
-        this.date = new GregorianCalendar(); //TODO: Find a way to handle this
-        this.interests = new ArrayList<String>();
-        this.participants = new ArrayList<User>();
+        this.date = new GregorianCalendar();
+        this.interests = new ArrayList();
+        this.participants = new ArrayList();
     }
     //2 Class-specific methods:
     
@@ -193,6 +194,20 @@ public class Activity implements java.io.Serializable {
      */
     public void setParticipants(ArrayList<User> participants) {
         this.participants = participants;
+    }
+
+    /**
+     * @return the imageName
+     */
+    public String getImageName() {
+        return imageName;
+    }
+
+    /**
+     * @param imageName the imageName to set
+     */
+    public void setImageName(String imageName) {
+        this.imageName = imageName;
     }
     
     

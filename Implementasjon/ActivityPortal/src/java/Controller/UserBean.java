@@ -36,7 +36,8 @@ public class UserBean implements java.io.Serializable{
     // Static choice of user for this prototype project.
     // Currently as Torbjørn Langland. May change. 
     public String logIn() throws Exception{
-        singleUser = Loader.loadSingleUserOnID(1);
+        //singleUser = Loader.loadSingleUserOnID(1);
+        singleUser = Loader.loadSingleUserOnID(13);
         return currentPage = "mainPage";
     }
     
@@ -48,7 +49,8 @@ public class UserBean implements java.io.Serializable{
     // Closely related to logout, plus extra restart functionality.
     // Therefore added to UserBean.
     public String reset() throws Exception{
-        Initiator.resetDatabase();
+        //Initiator.resetDatabase();
+        Initiator.resetDatabaseDemo();
         singleUser = new User();
         return currentPage = "index";
     }

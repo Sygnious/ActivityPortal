@@ -196,7 +196,7 @@ CREATE TABLE activity(activity_id INT NOT NULL,
                         activity_description VARCHAR(250),
                         town_id INT,
                         activity_date DATE NOT NULL, -- Format: YYYY-MM-DD
-                        -- IMAGE
+                        imageUrl VARCHAR(60),
                         PRIMARY KEY(activity_id));
 
 ALTER TABLE activity
@@ -204,31 +204,31 @@ ADD FOREIGN KEY(town_id)
 REFERENCES town(town_id);
 
 INSERT INTO activity VALUES(1, 'Teater: "Kristin Lavransdatter"', 
-'Forestilling med "Kristing Lavransdatter" på Trøndelag Teater. Oppmøte kl 18:00', 1, '2014-04-09');
+'Forestilling med "Kristing Lavransdatter" på Trøndelag Teater. Oppmøte kl 18:00', 1, '2014-04-09', NULL);
 INSERT INTO activity VALUES(2, 'Museumsbesøk Trondheim Kunstmuseum', 
-'Besøk på Trondheim Kunstmuseum. Oppmøte 15:30.',1, '2014-05-01');
+'Besøk på Trondheim Kunstmuseum. Oppmøte 15:30.',1, '2014-05-01', NULL);
 INSERT INTO activity VALUES(3, 'Politisk diskusjon', 'Diskutere det kommende året politisk. 
-Det blir hjemme hos Alfhild. Ring 90 69 54 17 for å melde transportbehov', 1, '2014-01-01'); -- Testing for date-filtering
+Det blir hjemme hos Alfhild. Ring 90 69 54 17 for å melde transportbehov', 1, '2014-01-01', NULL); -- Testing for date-filtering
 INSERT INTO activity VALUES(4, 'Politisk diskusjon', 'Diskutere utfallet og konsekvensene 
 av reservasjonsdebatten. Det blir hjemme hos Hans Hansen Hansensen på Gimse. 
-Transport fra Melhus sentrum 17:00.', 2, '2014-05-13'); -- Testing with another town_id
+Transport fra Melhus sentrum 17:00.', 2, '2014-05-13', NULL); -- Testing with another town_id
 INSERT INTO activity VALUES(5, 'Teater: "De Miserable"', 
-'Forestilling med det franske stykket "De Miserable" på Trøndelag Teater. Oppmøte kl 19:00', 1, '2014-05-13');
+'Forestilling med det franske stykket "De Miserable" på Trøndelag Teater. Oppmøte kl 19:00', 1, '2014-05-13', NULL);
 INSERT INTO activity VALUES(6, 'Fjelltur på Vassfjellet', 
-'Ring 90 69 54 17 for påmelding. Elever fra Nille Videregående Skole stiller opp', 1, '2014-07-02');
+'Ring 90 69 54 17 for påmelding. Elever fra Nille Videregående Skole stiller opp', 1, '2014-07-02', NULL);
 INSERT INTO activity VALUES(7, 'Skitur på Gråkallen', 
-'Ring 90 69 54 17 for påmelding. Elever fra Rimi Videregående Skole stiller opp', 1, '2014-04-02');
+'Ring 90 69 54 17 for påmelding. Elever fra Rimi Videregående Skole stiller opp', 1, '2014-04-02', NULL);
 INSERT INTO activity VALUES(8, 'Skitur i Flåmarka', 
-'Ring 90 69 54 17 for påmelding. Elever fra Jernia Videregående Skole stiller opp', 1, '2014-04-05');
+'Ring 90 69 54 17 for påmelding. Elever fra Jernia Videregående Skole stiller opp', 1, '2014-04-05', NULL);
 INSERT INTO activity VALUES(9, 'Kveld med Nintendo', 
 'Torbjørn Langland arrangerer spillkveld for de med interesse for Nintendo. Adressen er Moholt Alle 03 - 32 H0302.', 
-1, '2014-07-01');
-INSERT INTO activity VALUES(10, 'Vaffelfest', 'Vaffelfest på Trondheim Rådhus. Dørene åpner 17:30', 1, '2014-06-06');
-INSERT INTO activity VALUES(11, 'Kino: "Hobbiten 3"', 'Kinoforestilling på Nova med Hobbiten 3. Oppmøte 17:30.', 1, '2014-05-21');
+1, '2014-07-01', NULL);
+INSERT INTO activity VALUES(10, 'Vaffelfest', 'Vaffelfest på Trondheim Rådhus. Dørene åpner 17:30', 1, '2014-06-06', NULL);
+INSERT INTO activity VALUES(11, 'Kino: "Hobbiten 3"', 'Kinoforestilling på Nova med Hobbiten 3. Oppmøte 17:30.', 1, '2014-05-21', NULL);
 INSERT INTO activity VALUES(12, 'Vaffel og sang', 'Trine Katrine Larsen arrangerer sangkveld med vaffel.
-Stedet er Moholtsalen, adressen er Moholtstien 13. Tid er kl 18:00', 1, '2014-04-17');
-INSERT INTO activity VALUES(13, 'Foo', NULL, NULL, '2014-06-01'); -- Testing with no connected persons or interests
-INSERT INTO activity VALUES(14, 'Hemmelig møte for de hemmelige', NULL, NULL, '2014-06-01'); -- Testing NULL-values in general
+Stedet er Moholtsalen, adressen er Moholtstien 13. Tid er kl 18:00', 1, '2014-04-17', NULL);
+INSERT INTO activity VALUES(13, 'Foo', NULL, NULL, '2014-06-01', NULL); -- Testing with no connected persons or interests
+INSERT INTO activity VALUES(14, 'Hemmelig møte for de hemmelige', NULL, NULL, '2014-06-01', NULL); -- Testing NULL-values in general
 
 CREATE TABLE activity_interest(activity_id INT NOT NULL,
                                 interest_id INT NOT NULL,

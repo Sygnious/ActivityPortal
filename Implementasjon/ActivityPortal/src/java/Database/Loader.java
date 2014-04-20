@@ -244,6 +244,7 @@ public class Loader {
             res.next();
             result = new Activity(res.getInt(1), res.getString(2), res.getString(3), res.getInt(4));//TODO: Handle NULL-values
             result.setDate(result.convertToGregorian(res.getString(5)));
+            result.setImageName(res.getString(6));
             res.close();
             stm.close();
             // Execuring query for interests covered by activity
