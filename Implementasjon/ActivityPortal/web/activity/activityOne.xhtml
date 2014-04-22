@@ -14,11 +14,11 @@
                         <h:panelGroup>
                             <h:panelGrid columns ="2">
                                 <h:panelGroup>Navn: </h:panelGroup>
-                                <h:panelGroup>#{actB.singleAct.name}</h:panelGroup>
+                                <h:panelGroup class="content-text-details">#{actB.singleAct.name}</h:panelGroup>
 
                                 <h:panelGroup> <!--Image here--> </h:panelGroup>
                                 <h:panelGroup>
-                                    <h:graphicImage library ="images" name="#{actB.singleAct.imageName}" height="100px" rendered="#{!actB.isRendered}"/>
+                                    <h:graphicImage library ="images" name="#{actB.singleAct.imageName}" height="200px" rendered="#{!actB.isRendered}"/>
                                 </h:panelGroup>
                                 
                                 <h:panelGroup>Dato: </h:panelGroup>

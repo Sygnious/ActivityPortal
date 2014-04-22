@@ -184,27 +184,27 @@ ADD FOREIGN KEY(town_id)
 REFERENCES town(town_id);
 
 INSERT INTO activity VALUES(1, 'Teater: "Kristin Lavransdatter"', 
-'Forestilling med "Kristing Lavransdatter" på Trøndelag Teater. Oppmøte kl 18:00. Ring 90 69 54 17 for å ordne transport, senest 8. april kl 15:00.', 1, '2014-04-09', NULL);
+'Forestilling med "Kristing Lavransdatter" på Trøndelag Teater. Oppmøte kl 18:00. Ring 90 69 54 17 for å ordne transport, senest 8. april kl 15:00.', 1, '2014-04-09', 'Teater2.png');
 INSERT INTO activity VALUES(2, 'Kakefest hos Aud',
 'Aud Johansen ønsker å invitere til fest med kake hjemme hos seg. Addressen er Moholt Gate 13, på Moholt. Tidspunkt: Kl 18:00. \nFor de som trenger hjelp med transport, ring 90 69 54 17 for å ordne avtale. \nFor de som reiser med buss: Ta buss rute nummer 5 som kjører fra Trondheim Sentrum. Gå av på Moholt Studentby. Erik Johansen vil vise vei fra bussholdeplasesn fra og med 17:30.\nFor de som kjører bil: Om du kommer fra Omkjøringsveien, ta av ved Moholt og kjør sørover. Ta av 2. gate til høyre og kjør forbi Trondheim Økonomiske Høgskole. Sving til venstre ved 5. gate.
-\nOm du kommer sørfra, er Trondheim Økonomiske Høgskole første gate til venstre.', 1, '2014-05-04', 'Cake1');
+\nOm du kommer sørfra, er Trondheim Økonomiske Høgskole første gate til venstre.', 1, '2014-05-04', 'Cake2.png');
 INSERT INTO activity VALUES(3, 'Museumsbesøk Trondheim Kunstmuseum', 
-'Besøk på Trondheim Kunstmuseum. Oppmøte er 15:30 i sentrum.',1, '2014-05-01', NULL);
+'Besøk på Trondheim Kunstmuseum. Oppmøte er 15:30 i sentrum.',1, '2014-05-01', 'Painting1.jpg');
 INSERT INTO activity VALUES(4, 'Politisk diskusjon', 'Diskutere det kommende året politisk. 
-Det blir hjemme hos Alfhild. Ring 90 69 54 17 for å melde transportbehov', 1, '2014-01-01', NULL); -- Testing for date-filtering
+Det blir hjemme hos Alfhild. Ring 90 69 54 17 for å melde transportbehov', 1, '2014-01-01', 'Politics.jpg'); -- Testing for date-filtering
 INSERT INTO activity VALUES(5, 'Politisk diskusjon', 'Diskutere utfallet og konsekvensene 
 av reservasjonsdebatten. Det blir hjemme hos Hans Hansen Hansensen på Gimse. 
-Transport fra Melhus sentrum 17:00.', 2, '2014-05-13', NULL); -- Testing with another town_id
+Transport fra Melhus sentrum 17:00.', 2, '2014-05-13', 'Politics.jpg'); -- Testing with another town_id
 INSERT INTO activity VALUES(6, 'Teater: "De Miserable"', 
-'Forestilling med det franske stykket "De Miserable" på Trøndelag Teater. Oppmøte kl 19:00', 1, '2014-05-13', NULL);
+'Forestilling med det franske stykket "De Miserable" på Trøndelag Teater. Oppmøte kl 19:00', 1, '2014-05-13', 'Teater2.png');
 INSERT INTO activity VALUES(7, 'Fjelltur på Vassfjellet', 
-'Ring 90 69 54 17 for påmelding. Elever fra Nille Videregående Skole stiller opp', 1, '2014-07-02', NULL);
+'Ring 90 69 54 17 for påmelding. Elever fra Nille Videregående Skole stiller opp', 1, '2014-07-02', 'Vassfjellet2.png');
 INSERT INTO activity VALUES(8, 'Skitur på Gråkallen', 
-'Ring 90 69 54 17 for påmelding. Elever fra Rimi Videregående Skole stiller opp', 1, '2014-04-02', NULL);
+'Ring 90 69 54 17 for påmelding. Elever fra Rimi Videregående Skole stiller opp', 1, '2014-04-02', 'SnowForrest.jpg');
 INSERT INTO activity VALUES(9, 'Skitur i Flåmarka', 
-'Ring 90 69 54 17 for påmelding. Elever fra Jernia Videregående Skole stiller opp', 1, '2014-04-05', NULL);
+'Ring 90 69 54 17 for påmelding. Elever fra Jernia Videregående Skole stiller opp', 1, '2014-04-05', 'SnowForrest.jpg');
 INSERT INTO activity VALUES(10, 'Vaffelfest', 'Vaffelfest på Trondheim Rådhus. Dørene åpner 17:30', 1, '2014-06-06', 'Waffles.jpg');
-INSERT INTO activity VALUES(11, 'Kino: "Hundreåringen"', 'Kinoforestilling på Nova med Hundreåringen. Oppmøte 17:30.', 1, '2014-05-21', NULL);
+INSERT INTO activity VALUES(11, 'Kino: "Hundreåringen"', 'Kinoforestilling på Nova med Hundreåringen. Oppmøte 17:30.', 1, '2014-05-21', 'CinemaMovie.png');
 INSERT INTO activity VALUES(12, 'Vaffel og sang', 'Trine Katrine Larsen arrangerer sangkveld med vaffel.
 Stedet er Moholtsalen, adressen er Moholtstien 13. Tid er kl 18:00', 1, '2014-04-17', 'Waffles.jpg');
 

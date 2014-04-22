@@ -22,69 +22,16 @@ Pre 19.03.2014 3HR - Lære JUnit
 14.04.2014: 6.25 HR - Påmelding og avmelding av aktiviteter implementert. Utlisting av folk. Utlisting av tillagte venner.
 15.04.2014: 6 HR  - Legge til og slette venner er lagt til. Søk etter bestemt venns aktiviteter lagt til. Endre brukerdetaljer er lagt til. Søke venner etter søkeord er lagt til
 17.04.2014: 3 HR Fullføre utforming av websiden. 1. utkast
+XX.04.2014: 4 HR Redigere innhold
+22.04.2014: 15:15 Forberede innhold til demostrasjon
 
-TOTALT SÅ LANGT: 55.25HR
-
-BUTTONS TO BE MADE:
-- RESET
-- INDEX
-- LOGG UT
-
-- SØK ETTER AKTIVITETER
-	- ALLE
-	- INTERESSER
-	- VENNER SOM DELTAR
-	- SØKEORD
-		- SØK
-	- MELD PÅ
-	- MELD AV
-- SØK ETTER VENNER
-	- ALLE
-	- SØKEORD
-		-(SØK)
-	- LEGG TIL
-	- FJERN
-- ENDRE OPPLYSNINGER
-	- LAGRE
-
+TOTALT SÅ LANGT: 59.25HR
 
 TODO:
-2nd-priority står på ikke høyeste prioritet.
-Alt som ikke er markert med 2nd må gjøres først.
-TAGGED er neste på planen
 
-- Frontside
-	- Lage knapper ("Hva vil du gjøre?")
-		- Vise aktiviteter
-			- Alle (DONE)
-			- Vise detaljer (DONE)
-				- Påmelding (DONE)
-				- Avmelding (DONE)
-			- Søk etter interesse (DONE)
-			- Søk etter venner (TAGGED)
-			- Søk etter søkeord (DONE)
-			- Søk etter område (2nd-priority)
-				- Områdenr
-				- Postnummer (2nd-priority)
-				- Radius (NO WAY)
-		- Søke etter venner (DONE)
-			- Legge til	(DONE)
-			- Slette 	(DONE)
-		- Administrere egen bruker 
-- Få laget oversikt over tilhørende aktiviteter (DONE) (gjelder konstant)
-	- Lage egen side, som implementeres med ui-template (DONE)
-- 
 
-- Databasemuligheter som finnes som må tas i bruk
-	- User
-		- Load single (DONE)
-		- Load all others (Not implemented)
-		- 
-	- Activity
-		- Load all activities (DONE)
-		- Load all activities on ID (DONE... sort of)
-	- Stash
-		- Table size (could be useful)
+
+
 
 
 

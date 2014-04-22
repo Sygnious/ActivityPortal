@@ -12,10 +12,16 @@
                 <h:form>
                     <p class="content-text">Velkommen tilbake, #{userB.singleUser.firstName}.</p>
                     <p class="content-text-bold">Velg mellom å søke blant aktiviterer, blant venner <br/>eller endre dine egne personopplysninger</p>
-                    
-                        <p><h:commandButton image="/resources/images/commandButtons/IndexAktiviteter.png" action = "#{secNavB.activityIndex}"/></p>
-                        <p><h:commandButton image = "/resources/images/commandButtons/IndexVenner.png" action = "#{secNavB.userIndex}"/></p>
-                        <p><h:commandButton image = "/resources/images/commandButtons/IndexOpplysninger.png" action = "#{secNavB.userOwnDetails}"/></p>
+                    <h:panelGrid columns ="2">
+                        <h:panelGroup>
+                            <p><h:commandButton image="/resources/images/commandButtons/IndexAktiviteter.png" action = "#{secNavB.activityIndex}"/></p>
+                            <p><h:commandButton image = "/resources/images/commandButtons/IndexVenner.png" action = "#{secNavB.userIndex}"/></p>
+                            <p><h:commandButton image = "/resources/images/commandButtons/IndexOpplysninger.png" action = "#{secNavB.userOwnDetails}"/></p>
+                        </h:panelGroup>
+                        <h:panelGroup>                            
+                            <h:graphicImage library ="images" name="ElderCouple2.jpg" height="400px" rendered="#{!actB.isRendered}"/>
+                        </h:panelGroup>
+                    </h:panelGrid>
                 </h:form>
             </ui:define>
         </ui:composition>
