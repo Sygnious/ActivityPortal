@@ -171,6 +171,53 @@ ALTER TABLE person_interest
 ADD FOREIGN KEY(person_id)
 REFERENCES person(person_id);
 
+INSERT INTO person_interest VALUES(1, 1);
+INSERT INTO person_interest VALUES(1, 2); 
+INSERT INTO person_interest VALUES(1, 3);
+INSERT INTO person_interest VALUES(1, 4);
+INSERT INTO person_interest VALUES(1, 5);
+INSERT INTO person_interest VALUES(1, 6);
+INSERT INTO person_interest VALUES(1, 7);
+INSERT INTO person_interest VALUES(1, 8);
+INSERT INTO person_interest VALUES(1, 9);
+INSERT INTO person_interest VALUES(2, 5);
+INSERT INTO person_interest VALUES(2, 6);
+INSERT INTO person_interest VALUES(2, 1);
+INSERT INTO person_interest VALUES(2, 2);
+INSERT INTO person_interest VALUES(2, 3);
+INSERT INTO person_interest VALUES(3, 1);
+INSERT INTO person_interest VALUES(3, 2);
+INSERT INTO person_interest VALUES(3, 3);
+INSERT INTO person_interest VALUES(3, 5);
+INSERT INTO person_interest VALUES(3, 6);
+INSERT INTO person_interest VALUES(3, 7);
+INSERT INTO person_interest VALUES(8, 4);
+INSERT INTO person_interest VALUES(10, 4);
+INSERT INTO person_interest VALUES(10, 8);
+INSERT INTO person_interest VALUES(10, 9);
+INSERT INTO person_interest VALUES(5, 1);
+INSERT INTO person_interest VALUES(5, 2);
+INSERT INTO person_interest VALUES(5, 3);
+INSERT INTO person_interest VALUES(5, 5);
+INSERT INTO person_interest VALUES(5, 6);
+INSERT INTO person_interest VALUES(7, 7);
+INSERT INTO person_interest VALUES(7, 8);
+INSERT INTO person_interest VALUES(11, 5);
+INSERT INTO person_interest VALUES(11, 6);
+INSERT INTO person_interest VALUES(12, 1);
+INSERT INTO person_interest VALUES(12, 2);
+INSERT INTO person_interest VALUES(12, 3);
+INSERT INTO person_interest VALUES(12, 5);
+INSERT INTO person_interest VALUES(12, 6);
+INSERT INTO person_interest VALUES(12, 7);
+INSERT INTO person_interest VALUES(13, 1);
+INSERT INTO person_interest VALUES(13, 2);
+INSERT INTO person_interest VALUES(13, 3);
+INSERT INTO person_interest VALUES(13, 4);
+INSERT INTO person_interest VALUES(13, 5);
+INSERT INTO person_interest VALUES(13, 6);
+INSERT INTO person_interest VALUES(13, 7);
+
 CREATE TABLE activity(activity_id INT NOT NULL,
                         activity_name VARCHAR(60) NOT NULL,
                         activity_description VARCHAR(2500),
@@ -198,7 +245,9 @@ Transport fra Melhus sentrum 17:00.', 2, '2014-05-13', 'Politics.jpg'); -- Testi
 INSERT INTO activity VALUES(6, 'Teater: "De Miserable"', 
 'Forestilling med det franske stykket "De Miserable" på Trøndelag Teater. Oppmøte kl 19:00', 1, '2014-05-13', 'Teater2.png');
 INSERT INTO activity VALUES(7, 'Fjelltur på Vassfjellet', 
-'Ring 90 69 54 17 for påmelding. Elever fra Nille Videregående Skole stiller opp', 1, '2014-07-02', 'Vassfjellet2.png');
+'Tur til toppen av Vassfjellet, ved Topphytta.
+Ring 90 69 54 17 for påmelding. Transport vil ordnes. Elever fra Nille Videregående Skole stiller opp.
+Det er 20 sitteplasser tilgjengelig i og utenfor hytta, i tillegg tar arrangør med flere stoler og sitteunderlag. Toalett finnes i hytta.', 1, '2014-07-02', 'Vassfjellet2.png');
 INSERT INTO activity VALUES(8, 'Skitur på Gråkallen', 
 'Ring 90 69 54 17 for påmelding. Elever fra Rimi Videregående Skole stiller opp', 1, '2014-04-02', 'SnowForrest.jpg');
 INSERT INTO activity VALUES(9, 'Skitur i Flåmarka', 
