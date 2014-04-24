@@ -233,8 +233,8 @@ REFERENCES town(town_id);
 INSERT INTO activity VALUES(1, 'Teater: "Kristin Lavransdatter"', 
 'Forestilling med "Kristing Lavransdatter" på Trøndelag Teater. Oppmøte kl 18:00. Ring 90 69 54 17 for å ordne transport, senest 8. april kl 15:00.', 1, '2014-04-09', 'Teater2.png');
 INSERT INTO activity VALUES(2, 'Kakefest hos Aud',
-'Aud Johansen ønsker å invitere til fest med kake hjemme hos seg. Addressen er Moholt Gate 13, på Moholt. Tidspunkt: Kl 18:00. \nFor de som trenger hjelp med transport, ring 90 69 54 17 for å ordne avtale. \nFor de som reiser med buss: Ta buss rute nummer 5 som kjører fra Trondheim Sentrum. Gå av på Moholt Studentby. Erik Johansen vil vise vei fra bussholdeplasesn fra og med 17:30.\nFor de som kjører bil: Om du kommer fra Omkjøringsveien, ta av ved Moholt og kjør sørover. Ta av 2. gate til høyre og kjør forbi Trondheim Økonomiske Høgskole. Sving til venstre ved 5. gate.
-\nOm du kommer sørfra, er Trondheim Økonomiske Høgskole første gate til venstre.', 1, '2014-05-04', 'Cake2.png');
+'Aud Johansen ønsker å invitere til fest med kake hjemme hos seg. Addressen er Moholt Gate 13, på Moholt. Tidspunkt: Kl 18:00. For de som trenger hjelp med transport, ring 90 69 54 17 for å ordne avtale. For de som reiser med buss: Ta buss rute nummer 5 som kjører fra Trondheim Sentrum. Gå av på Moholt Studentby. Erik Johansen vil vise vei fra bussholdeplasesn fra og med 17:30.For de som kjører bil: Om du kommer fra Omkjøringsveien, ta av ved Moholt og kjør sørover. Ta av 2. gate til høyre og kjør forbi Trondheim Økonomiske Høgskole. Sving til venstre ved 5. gate.
+Om du kommer sørfra, er Trondheim Økonomiske Høgskole første gate til venstre.', 1, '2014-05-04', 'Cake2.png');
 INSERT INTO activity VALUES(3, 'Museumsbesøk Trondheim Kunstmuseum', 
 'Besøk på Trondheim Kunstmuseum. Oppmøte er 15:30 i sentrum.',1, '2014-05-01', 'Painting1.jpg');
 INSERT INTO activity VALUES(4, 'Politisk diskusjon', 'Diskutere det kommende året politisk. 
